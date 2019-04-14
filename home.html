@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>首 页</title>
+    <title>首页 - 登陆日志</title>
     <!--    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./fonts/iconfont.css">
     <link rel="stylesheet" href="./css/global.css">
     <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/bootstrap-datetimepicker.min.css">
 </head>
 <body class="bg-color">
-<main class="home">
+<div class="home">
     <header class="w-100 color-bg-white">
-        <div class="container h-100">
+        <section class="container h-100">
             <div class="h-100 row justify-content-between align-items-center">
                 <div>
                     <img src="./image/logo.png" alt="">
@@ -34,10 +35,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </header>
     <main class="container d-flex justify-content-center mt-3">
-        <section class="d-flex flex-wrap mr-1 w-65 h-100">
+        <section class="d-flex flex-wrap mr-1 w-60 h-100">
             <div class="row flex-column icon-item justify-content-center align-items-center">
                 <div class="icon-img-item danger-bg-color">
                     <img src="./image/user-manage.png" alt="" class="img-fluid icon-img">
@@ -60,13 +61,19 @@
                 <div class="icon-img-item sky-bg-color">
                     <img src="./image/money.png" alt="" class="img-fluid icon-img">
                 </div>
-                <span>商业信贷</span>
+                <span>客户信贷</span>
+            </div>
+            <div class="row flex-column icon-item justify-content-center align-items-center">
+                <div class="icon-img-item primary-bg-color">
+                    <img src="./image/add.png" alt="" class="img-fluid icon-img">
+                </div>
+                <span>过桥信息录入</span>
             </div>
             <div class="row flex-column icon-item justify-content-center align-items-center">
                 <div class="icon-img-item warn-bg-color">
                     <img src="./image/approval.png" alt="" class="img-fluid icon-img">
                 </div>
-                <span>过桥信息录入</span>
+                <span>审批</span>
             </div>
             <div class="row flex-column icon-item justify-content-center align-items-center">
                 <div class="icon-img-item sky-bg-color">
@@ -149,7 +156,127 @@
             </ul>
         </section>
     </main>
+</div>
+
+<!--模态框-->
+<div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">登陆日志</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row w-100 align-items-center mb-3">
+                    <span class="col pr-0">日期范围</span>
+                    <div class='col-sm-3 pl-0'>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                            </div>
+                            <input type="text" class="form-control form_datetime" placeholder="开始日期" aria-label="date" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="mt-1">-</div>
+                    <div class='col-sm-3'>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input type="text" class="form-control form_datetime" placeholder="结束日期" aria-label="date" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class='col-sm-3'>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="日志类型" aria-label="date" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-sm btn-size">Success</button>
+                </div>
+
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
-    </div>
+</div>
 </body>
+<script src="./js/jquery.slim.min.js"></script>
+<script src="./js/popper.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+<script type="text/javascript">
+  $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+
+  $(".icon-item").click(function(){
+    $('#myModal').modal('show');
+  });
+</script>
 </html>
