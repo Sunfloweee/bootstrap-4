@@ -1,0 +1,56 @@
+/*背景颜色*/
+.bg-color {
+    background: #f6f6f6;
+}
+
+/* 基础颜色 */
+.primary-color {
+    color: #53b551;
+}
+
+.primary-bg-color {
+    background: #53b551;
+}
+
+/* 白色 */
+.color-white {
+    color: #ffffff;
+}
+
+.color-bg-white {
+    background: #ffffff;
+}
+
+/* 红色 */
+.danger-bg-color {
+    background: #ed6853;
+}
+
+/* 黄色 */
+.warn-bg-color {
+    background: #f0af48;
+}
+
+/* 蓝色 */
+.sky-bg-color {
+    background: #47a8f4;
+}
+
+/* 紫色 */
+.violet-bg-color {
+    background: #736af1;
+}
+
+/* 灰色 */
+.color-gray {
+    color: #b3b3b3;
+}
+
+.w-65 {
+    width: 65% !important;
+}
+
+.fs-14 {
+    font-size: 14px;
+    flex-shrink: 1;
+}

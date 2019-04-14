@@ -13,9 +13,12 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.code-item {
+    width: 25%;
+}
+
 .btn-common {
-    background-color: #e22a6f;
+    background-color: #53b550;
     position: relative;
     z-index: 1;
-    color: #fff
 }

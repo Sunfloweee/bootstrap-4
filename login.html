@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>login</title>
-<!--    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <title>登 陆</title>
+    <!--    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./fonts/iconfont.css">
+    <link rel="stylesheet" href="./css/global.css">
 </head>
 <body>
 <body>
@@ -17,34 +19,40 @@
         <div class="row justify-content-center">
             <div class="col-lg-5 col-md-12 col-xs-12">
                 <div class="card">
-                    <div class="card-header border-bottom text-center">
-                        <h4 class="card-title">Sign In</h4>
+                    <div class="mt-4 text-center">
+                        <h4 class="card-title">后台管理系统</h4>
                     </div>
                     <div class="card-body">
                         <form class="form-horizontal m-t-20">
-                            <div class="form-group">
-                                <input class="form-control" type="text" required="" placeholder="Username">
+                            <!-- 用户名 -->
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <i class="input-group-text iconfont icon-wo1"></i>
+                                </div>
+                                <input type="text" class="form-control" placeholder="输入用户名">
                             </div>
-                            <div class="form-group">
-                                <input class="form-control" type="password" required="" placeholder="Password">
+                            <!-- 密码 -->
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <i class="input-group-text iconfont icon-ziyuanxhdpi"></i>
+                                </div>
+                                <input type="password" class="form-control" placeholder="输入密码">
                             </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">Remember me</label>
+                            <!-- 验证码 -->
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <i class="input-group-text iconfont icon-yanzhengma2"></i>
+                                </div>
+                                <input type="text" class="form-control border-right-0" placeholder="输入验证码">
+                                <div class="code-item">
+                                    <img src="./image/code.png" class="img-fluid w-100 h-100" alt="点击重新加载">
                                 </div>
                             </div>
+                            <!-- 登陆 -->
                             <div class="form-group text-center m-t-20">
-                                <button class="btn btn-common btn-block" type="submit">Log In</button>
-                            </div>
-                            <div class="form-group">
-                                <div class="float-right">
-                                    <a href="forgot-password.html" class="text-muted"><i class="lni-lock"></i> Forgot
-                                        your password?</a>
-                                </div>
-                                <div class="float-left">
-                                    <a href="sign-up.html" class="text-muted"><i class="lni-user"></i> Create an account</a>
-                                </div>
+                                <button class="btn btn-common btn-block primary-color" type="submit">
+                                    登 陆
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -66,7 +74,13 @@
 <script src="assets/js/main.js"></script>
 </body>
 </body>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"-->
+<!--        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"-->
+<!--        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"-->
+<!--        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
+<!--        crossorigin="anonymous"></script>-->
 </html>

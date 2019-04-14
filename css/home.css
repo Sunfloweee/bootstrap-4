@@ -1,0 +1,73 @@
+header {
+    height: 65px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.icon-item {
+    height: 10rem;
+    padding: 10px 25px;
+    margin: 5px;
+    background: white;
+    border-radius: 10px;
+}
+
+.icon-item > span {
+    font-size: 14px;
+}
+
+.icon-img-item {
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: .5rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.sm-icon-img-item {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.sm-icon-img-item .sm-icon-img {
+    width: 1rem;
+    height: 1rem;
+}
+
+.icon-item .icon-img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.circle-item {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-title {
+    font-size: 12px;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+    background: #e8f7ec;
+}
+
+.info {
+    font-size: 22px;
+}
+
+.info-badge {
+    top: 0;
+    right: -70%;
+}
