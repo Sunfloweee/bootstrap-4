@@ -39,7 +39,7 @@
     </header>
     <main class="container d-flex justify-content-center mt-3">
         <section class="d-flex flex-wrap mr-1 w-60 h-100">
-            <div class="row flex-column icon-item justify-content-center align-items-center">
+            <div class="row flex-column icon-item justify-content-center align-items-center" id="userManage">
                 <div class="icon-img-item danger-bg-color">
                     <img src="./image/user-manage.png" alt="" class="img-fluid icon-img">
                 </div>
@@ -109,10 +109,11 @@
                         <div class="sub-title color-gray">添加工作状态</div>
                     </div>
                 </li>
-                <li class="list-group-item">Dapibus ac facilisis in</li>
-                <li class="list-group-item">Morbi leo risus</li>
-                <li class="list-group-item">Porta ac consectetur ac</li>
-                <li class="list-group-item">Vestibulum at eros</li>
+                <li class="list-group-item">账户信息</li>
+                <li class="list-group-item" id="modify-phone">修改手机号</li>
+                <li class="list-group-item" data-target="">修改密码</li>
+                <li class="list-group-item">登陆日志</li>
+                <li class="list-group-item">退出登陆</li>
             </ul>
 
             <!--消息提示-->
@@ -158,10 +159,11 @@
     </main>
 </div>
 
-<!--模态框-->
-<div id="myModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+<!-- 登陆日志 -->
+<div id="loginlog" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered ">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">登陆日志</h5>
@@ -177,7 +179,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">@</span>
                             </div>
-                            <input type="text" class="form-control form_datetime" placeholder="开始日期" aria-label="date" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control form_datetime" placeholder="开始日期" aria-label="date"
+                                   aria-describedby="basic-addon1">
                         </div>
                     </div>
                     <div class="mt-1">-</div>
@@ -186,12 +189,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">@</span>
                             </div>
-                            <input type="text" class="form-control form_datetime" placeholder="结束日期" aria-label="date" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control form_datetime" placeholder="结束日期" aria-label="date"
+                                   aria-describedby="basic-addon1">
                         </div>
                     </div>
                     <div class='col-sm-3'>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="日志类型" aria-label="date" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="日志类型" aria-label="date"
+                                   aria-describedby="basic-addon1">
                         </div>
                     </div>
                     <button type="button" class="btn btn-success btn-sm btn-size">Success</button>
@@ -199,37 +204,6 @@
 
                 <table class="table">
                     <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <table class="table">
-                    <thead class="thead-light">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">First</th>
@@ -266,6 +240,94 @@
         </div>
     </div>
 </div>
+
+<!-- 修改手机号 -->
+<div id="phoneModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">修改手机号</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pl-5 pr-5">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="text-nowrap color-gray">原手机号码</span>
+                    <div class="ml-3 w-100">
+                        <input type="text" class="form-control" placeholder="输入原手机号" aria-label="Username"
+                               aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <span class="text-nowrap color-gray">新手机号码</span>
+                    <div class="ml-3 w-100">
+                        <input type="text" class="form-control" placeholder="输入新手机号" aria-label="Username"
+                               aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <span class="text-nowrap color-gray">手机验证码</span>
+                    <div class="input-group ml-3">
+                        <input type="text" class="form-control" placeholder="输入验证码" aria-label="Recipient's username"
+                               aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <span class="input-group-text primary-bg-color color-white" id="basic-addon2">获取验证码</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mt-4">
+                    <button type="button" class="btn w-75 btn-success primary-bg-color">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--用户管理-->
+<div id="userManageModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg w-100">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">用户管理</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row w-100 align-items-center mb-3 pl-3 pr-3 justify-content-between">
+                    <span>状态</span>
+                    <div class='col-sm-2 pl-0'>
+                        <div class="input-group">
+                            <input type="text" class="form-control form_datetime" placeholder="开始日期" aria-label="date"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <span>角色</span>
+                    <div class='col-sm-2 pl-0'>
+                        <div class="input-group">
+                            <input type="text" class="form-control form_datetime" placeholder="开始日期" aria-label="date"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class='col-sm-3'>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="日志类型" aria-label="date"
+                                   aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-sm btn-size">Success</button>
+                    <button type="button" class="btn btn-success btn-sm btn-size">Success</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 <script src="./js/jquery.slim.min.js"></script>
 <script src="./js/popper.min.js"></script>
@@ -275,8 +337,19 @@
 <script type="text/javascript">
   $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 
-  $(".icon-item").click(function(){
-    $('#myModal').modal('show');
+
+  // $(".icon-item").click(function () {
+  //   $('#loginlog').modal('show');
+  // });
+
+  // 用户管理
+  $("#userManage").click(function () {
+    $('#userManageModal').modal('show');
+  });
+
+
+  $("#modify-phone").click(function () {
+    $('#phoneModal').modal('show');
   });
 </script>
 </html>
