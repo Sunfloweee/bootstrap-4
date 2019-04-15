@@ -22,7 +22,7 @@
                         <h4 class="card-title">后台管理系统</h4>
                     </div>
                     <div class="card-body">
-                        <form class="form-horizontal m-t-20">
+                        <div class="form-horizontal m-t-20">
                             <!-- 用户名 -->
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
@@ -49,11 +49,9 @@
                             </div>
                             <!-- 登陆 -->
                             <div class="form-group text-center m-t-20">
-                                <button class="btn btn-common btn-block primary-color" type="submit">
-                                    登 陆
-                                </button>
+                                <button class="btn btn-common btn-block color-white" onclick="login()">登 陆</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,15 +59,14 @@
     </div>
 </div>
 
-<div id="preloader">
-    <div class="loader" id="loader-1"></div>
-</div>
+<script src="./js/jquery.slim.min.js"></script>
+<script src="./js/popper.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 
-
-<script src="assets/js/jquery-min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.app.js"></script>
-<script src="assets/js/main.js"></script>
+<script type="text/javascript">
+   function login () {
+     location.href = './home.html'
+   }
+</script>
 </body>
 </html>

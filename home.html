@@ -45,7 +45,7 @@
                 </div>
                 <span>用户管理</span>
             </div>
-            <div class="row flex-column icon-item justify-content-center align-items-center">
+            <div class="row flex-column icon-item justify-content-center align-items-center" id="loan">
                 <div class="icon-img-item primary-bg-color">
                     <img src="./image/loan.png" alt="" class="img-fluid icon-img">
                 </div>
@@ -112,7 +112,7 @@
                 <li class="list-group-item">账户信息</li>
                 <li class="list-group-item" id="modify-phone">修改手机号</li>
                 <li class="list-group-item" data-target="">修改密码</li>
-                <li class="list-group-item">登陆日志</li>
+                <li class="list-group-item" id="login-log">登陆日志</li>
                 <li class="list-group-item">退出登陆</li>
             </ul>
 
@@ -160,7 +160,7 @@
 </div>
 
 <!-- 登陆日志 -->
-<div id="loginlog" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+<div id="loginlogModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -213,19 +213,19 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">1</th>
+                        <th>1</th>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
+                        <th>2</th>
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>@fat</td>
                     </tr>
                     <tr>
-                        <th scope="row">3</th>
+                        <th>3</th>
                         <td>Larry</td>
                         <td>the Bird</td>
                         <td>@twitter</td>
@@ -299,33 +299,339 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="row w-100 align-items-center mb-3 pl-3 pr-3 justify-content-between">
-                    <span>状态</span>
-                    <div class='col-sm-2 pl-0'>
-                        <div class="input-group">
-                            <input type="text" class="form-control form_datetime" placeholder="开始日期" aria-label="date"
-                                   aria-describedby="basic-addon1">
+                <div class="row w-100 align-items-center mb-3 pl-3 justify-content-between">
+                    <div class="col-sm-10 row align-items-center">
+                        <div class="col-sm-4 d-flex flex-nowrap align-items-center pl-0">
+                            <span class="text-nowrap mr-2">状态</span>
+                            <div class="input-group">
+                                <input type="text" class="form-control form_datetime" placeholder="开始日期"
+                                       aria-label="date"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 d-flex flex-nowrap align-items-center pl-0">
+                            <span class="text-nowrap mr-2">角色</span>
+                            <div class="input-group">
+                                <input type="text" class="form-control form_datetime" placeholder="开始日期"
+                                       aria-label="date"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="请输入用户名或姓名" aria-label="date"
+                                       aria-describedby="basic-addon1">
+                            </div>
                         </div>
                     </div>
-                    <span>角色</span>
-                    <div class='col-sm-2 pl-0'>
-                        <div class="input-group">
-                            <input type="text" class="form-control form_datetime" placeholder="开始日期" aria-label="date"
-                                   aria-describedby="basic-addon1">
+                    <div class="d-flex col-md-2 pr-0 pl-0 align-items-center">
+                        <button type="button" class="btn btn-success btn-block btn-sm btn-size mr-1">搜索</button>
+                        <button type="button" class="btn btn-primary btn-block mt-0 btn-sm btn-size">重置</button>
+                    </div>
+                </div>
+                <div class="row justify-content-between w-100 ml-0 mr-0 pr-3">
+                    <button type="button" class="btn btn-success btn-sm btn-size" id="add-user">添加客户</button>
+                    <div>
+                        <span>用户数量</span>
+                        <span>8</span>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <table class="table w-100">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">用户名</th>
+                            <th scope="col">角色</th>
+                            <th scope="col">姓名</th>
+                            <th scope="col">手机号码</th>
+                            <th scope="col">状态</th>
+                            <th scope="col">通知短信</th>
+                            <th scope="col">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>
+                                <span class="badge badge-pill badge-success">启用中</span>
+                            </td>
+                            <td>@mdo</td>
+                            <td class="d-flex">
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger">禁用</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-primary">修改</button>
+                                <button type="button" class="btn btn-sm btn-outline-warning">设密</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>
+                                <span class="badge badge-pill badge-danger">禁用中</span>
+                            </td>
+                            <td>@fat</td>
+                            <td class="d-flex">
+                                <button type="button" class="btn btn-sm btn-outline-success mr-1">启用</button>
+                                <button type="button" class="btn btn-sm btn-outline-primary mr-1">修改</button>
+                                <button type="button" class="btn btn-sm btn-outline-warning">设密</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <i class="iconfont icon-zuojiantou"></i>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="iconfont icon-sanjiaoright"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--添加用户-->
+<div id="addUserModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">修改手机号</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pl-5 pr-5">
+                <div class="row align-items-center flex-nowrap mb-3">
+                    <div class="col-sm-3 text-nowrap color-gray text-right pr-0">用户名</div>
+                    <div class="col-sm-9 ml-3 w-70">
+                        <input type="text" class="form-control" placeholder="用户名为6-16位数字或大小写字母！">
+                    </div>
+                </div>
+                <div class="row align-items-center flex-nowrap mb-3">
+                    <div class="col-sm-3 text-nowrap color-gray text-right pr-0">密码</div>
+                    <div class="col-sm-9 ml-3 w-70">
+                        <input type="text" class="form-control" placeholder="密码为6-16位数字或大小写字母！">
+                    </div>
+                </div>
+                <div class="row align-items-center flex-nowrap mb-3">
+                    <div class="col-sm-3 text-nowrap color-gray text-right pr-0">确认密码</div>
+                    <div class="col-sm-9 ml-3 w-70">
+                        <input type="text" class="form-control" placeholder="请再次确认密码">
+                    </div>
+                </div>
+                <div class="row align-items-center flex-nowrap mb-3">
+                    <div class="col-sm-3 text-nowrap color-gray text-right pr-0">权限</div>
+                    <div class="col-sm-9 ml-3 w-70">
+                        <select class="form-control" id="exampleSelectGender">
+                            <option>超级管理员</option>
+                            <option>管理员</option>
+                            <option>客户经理</option>
+                            <option>财务</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row align-items-center flex-nowrap mb-3">
+                    <div class="col-sm-3 text-nowrap color-gray text-right pr-0">真实姓名</div>
+                    <div class="col-sm-9 ml-3 w-70">
+                        <input type="text" class="form-control" placeholder="输入真实姓名">
+                    </div>
+                </div>
+                <div class="row align-items-center flex-nowrap mb-3">
+                    <div class="col-sm-3 text-nowrap color-gray text-right pr-0">手机号码</div>
+                    <div class="col-sm-9 ml-3 w-70">
+                        <input type="text" class="form-control" placeholder="输入手机号">
+                    </div>
+                </div>
+                <div class="row align-items-center flex-nowrap mb-3">
+                    <div class="col-sm-3 text-nowrap color-gray text-right pr-0">微信公众号</div>
+                    <div class="col-sm-9 ml-3 w-70 row">
+                        <div class="custom-control custom-radio radio custom-control-inline">
+                            <input type="radio" class="custom-control-input"
+                                   name="boolean" id="true" checked="">
+                            <label class="custom-control-label" for="true">是</label>
+                        </div>
+                        <div class="custom-control custom-radio radio custom-control-inline">
+                            <input type="radio" class="custom-control-input"
+                                   name="boolean" id="false" checked="">
+                            <label class="custom-control-label" for="false">否</label>
                         </div>
                     </div>
-                    <div class='col-sm-3'>
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="日志类型" aria-label="date"
-                                   aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                    <button type="button" class="btn btn-success btn-sm btn-size">Success</button>
-                    <button type="button" class="btn btn-success btn-sm btn-size">Success</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!--贷款申请-->
+<div id="loanModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg w-100">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">贷款申请</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row w-100 align-items-center mb-3 pl-3 justify-content-between">
+                    <div class="col-sm-10 row align-items-center">
+                        <div class="col-sm-4 d-flex flex-nowrap align-items-center pl-0">
+                            <span class="text-nowrap mr-2">手机号</span>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="输入手机号">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 d-flex flex-nowrap align-items-center pl-0">
+                            <span class="text-nowrap mr-2">金额</span>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="输入金额">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control">
+                                <option>待处理</option>
+                                <option>已受理</option>
+                                <option>未受理</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex col-md-2 pr-0 pl-0 align-items-center">
+                        <button type="button" class="btn btn-success btn-block btn-sm btn-size mr-1">搜索</button>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <table class="table w-100">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">手机号码</th>
+                            <th scope="col">申请金额</th>
+                            <th scope="col">预计借款时间</th>
+                            <th scope="col">状态</th>
+                            <th scope="col">申请时间</th>
+                            <th scope="col">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>13209809809</th>
+                            <td>50000.0</td>
+                            <td>2019年3月30日</td>
+                            <td>
+                                <span class="badge badge-pill badge-danger">待处理</span>
+                            </td>
+                            <td>2019年3月25日</td>
+                            <td class="d-flex">
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-success">受理</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan">拒绝</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>13209809809</th>
+                            <td>50000.0</td>
+                            <td>2019年3月30日</td>
+                            <td>
+                                <span class="badge badge-pill badge-success">已受理</span>
+                            </td>
+                            <td>2019年3月30日</td>
+                            <td class="d-flex">
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan">拒绝</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-primary">详情</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>13209809809</th>
+                            <td>50000.0</td>
+                            <td>2019年3月30日</td>
+                            <td>
+                                <span class="badge badge-pill badge-primary">未受理</span>
+                            </td>
+                            <td>2019年3月30日</td>
+                            <td class="d-flex">
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-success">受理</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-primary">详情</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <i class="iconfont icon-zuojiantou"></i>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="iconfont icon-sanjiaoright"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--拒绝贷款-->
+<div id="refuseLoanModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">拒绝</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pl-5 pr-5">
+                <div class="row align-items-center flex-nowrap mb-3">
+                    <div class="col-sm-3 text-nowrap color-gray text-right pr-0">手机号</div>
+                    <div class="col-sm-9 ml-3 w-70">
+                        <span>132680903423</span>
+                    </div>
+                </div>
+                <div class="row align-items-center flex-nowrap mb-3">
+                    <div class="col-sm-3 text-nowrap color-gray text-right pr-0">申请金额</div>
+                    <div class="col-sm-9 ml-3 w-70">
+                        <span>50000.0</span>
+                    </div>
+                </div>
+                <div class="row align-items-start flex-nowrap mb-3">
+                    <div class="col-sm-3 text-nowrap color-gray text-right pr-0">拒绝理由</div>
+                    <div class="col-sm-9 ml-3 w-70">
+                        <textarea class="form-control"placeholder="输入拒绝理由" rows="4"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
 </div>
 
 </body>
@@ -337,19 +643,33 @@
 <script type="text/javascript">
   $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 
-
-  // $(".icon-item").click(function () {
-  //   $('#loginlog').modal('show');
-  // });
-
   // 用户管理
   $("#userManage").click(function () {
     $('#userManageModal').modal('show');
   });
 
+  // 登陆日志
+  $("#login-log").click(function () {
+    $('#loginlogModal').modal('show');
+  });
 
+  // 贷款申请
+  $("#loan").click(function () {
+    $('#loanModal').modal('show');
+  });
+
+  $('.refuse-loan').click(function () {
+    $('#refuseLoanModal').modal('show');
+  });
+
+  // 修改手机号码
   $("#modify-phone").click(function () {
     $('#phoneModal').modal('show');
+  });
+
+  // 添加用户
+  $("#add-user").click(function () {
+    $('#addUserModal').modal('show');
   });
 </script>
 </html>
