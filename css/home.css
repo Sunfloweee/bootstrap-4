@@ -75,3 +75,24 @@ header {
 .btn-size {
     height: 38px;
 }
+
+.modal-fixed-right {
+    left: inherit;
+}
+
+.modal-base-title {
+    padding: 1rem;
+    position: relative;
+}
+
+.modal-base-title:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 3px;
+    background: #00a400;
+    height: 1rem;
+}
+

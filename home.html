@@ -51,7 +51,7 @@
                 </div>
                 <span>贷款申请</span>
             </div>
-            <div class="row flex-column icon-item justify-content-center align-items-center">
+            <div class="row flex-column icon-item justify-content-center align-items-center" id="add-customer">
                 <div class="icon-img-item warn-bg-color">
                     <img src="./image/customer.png" alt="" class="img-fluid icon-img">
                 </div>
@@ -439,7 +439,7 @@
                 <div class="row align-items-center flex-nowrap mb-3">
                     <div class="col-sm-3 text-nowrap color-gray text-right pr-0">权限</div>
                     <div class="col-sm-9 ml-3 w-70">
-                        <select class="form-control" id="exampleSelectGender">
+                        <select class="form-control">
                             <option>超级管理员</option>
                             <option>管理员</option>
                             <option>客户经理</option>
@@ -464,13 +464,13 @@
                     <div class="col-sm-9 ml-3 w-70 row">
                         <div class="custom-control custom-radio radio custom-control-inline">
                             <input type="radio" class="custom-control-input"
-                                   name="boolean" id="true" checked="">
-                            <label class="custom-control-label" for="true">是</label>
+                                   name="wx" id="is-wx" checked="">
+                            <label class="custom-control-label" for="is-wx">是</label>
                         </div>
                         <div class="custom-control custom-radio radio custom-control-inline">
                             <input type="radio" class="custom-control-input"
-                                   name="boolean" id="false" checked="">
-                            <label class="custom-control-label" for="false">否</label>
+                                   name="wx" id="no-wx" checked="">
+                            <label class="custom-control-label" for="no-wx">否</label>
                         </div>
                     </div>
                 </div>
@@ -623,15 +623,170 @@
                 <div class="row align-items-start flex-nowrap mb-3">
                     <div class="col-sm-3 text-nowrap color-gray text-right pr-0">拒绝理由</div>
                     <div class="col-sm-9 ml-3 w-70">
-                        <textarea class="form-control"placeholder="输入拒绝理由" rows="4"></textarea>
+                        <textarea class="form-control" placeholder="输入拒绝理由" rows="4"></textarea>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 
+<!--添加客户-->
+<div id="addCustomerModal" class="modal fade modal-fixed-right" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="justify-content: flex-end;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加客户</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+<!--            基本信息-->
+            <div class="mb-4 border-bottom mt-4">
+                <span class="modal-base-title">基本信息</span>
+                <div class="modal-body pl-5 pr-5">
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">类型</div>
+                        <div class="col-sm-9 ml-3 w-70 row">
+                            <div class="custom-control custom-radio radio custom-control-inline">
+                                <input type="radio" class="custom-control-input"
+                                       name="customerType" id="person" checked="">
+                                <label class="custom-control-label" for="person">是</label>
+                            </div>
+                            <div class="custom-control custom-radio radio custom-control-inline">
+                                <input type="radio" class="custom-control-input"
+                                       name="customerType" id="company" checked="">
+                                <label class="custom-control-label" for="company">否</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">姓名</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入姓名">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">电话</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入电话">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">地址</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入地址">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">身份证号码</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入身份证号码">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">身份证上传</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入身份证号码">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">是否结婚</div>
+                        <div class="col-sm-9 ml-3 w-70 row">
+                            <div class="custom-control custom-radio radio custom-control-inline">
+                                <input type="radio" class="custom-control-input"
+                                       name="marry" id="is-marry" checked="">
+                                <label class="custom-control-label" for="is-marry">是</label>
+                            </div>
+                            <div class="custom-control custom-radio radio custom-control-inline">
+                                <input type="radio" class="custom-control-input"
+                                       name="marry" id="no-marry" checked="">
+                                <label class="custom-control-label" for="no-marry">否</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--            配偶信息-->
+            <div>
+                <span class="modal-base-title ml-3 mt-2">配偶信息</span>
+                <div class="modal-body pl-5 pr-5">
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">姓名</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入姓名">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">电话</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入电话">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">亲属关系</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入地址">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">地址</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入身份证号码">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">身份证上传</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入身份证号码">
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--            家庭成员-->
+            <div>
+                <span class="modal-base-title ml-3 mt-2">家庭成员1</span>
+                <div class="modal-body pl-5 pr-5">
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">姓名</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入姓名">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">电话</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入电话">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">亲属关系</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入关系">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">地址</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入地址">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">身份证上传</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="输入身份证号码">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ml-3 mb-3">
+                <button type="button" class="col-2  mr-2 btn w-75 btn-success btn-sm primary-bg-color">保存</button>
+                <button type="button" class="col-2 btn w-75 btn-success btn-sm btn-secondary">返回</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
@@ -670,6 +825,11 @@
   // 添加用户
   $("#add-user").click(function () {
     $('#addUserModal').modal('show');
+  });
+
+  // 添加用户
+  $("#add-customer").click(function () {
+    $('#addCustomerModal').modal('show');
   });
 </script>
 </html>
