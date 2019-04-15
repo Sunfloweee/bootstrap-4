@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/global.css">
 
     <style>
-        .header_title{
+        .header_title {
 
         }
 
@@ -23,6 +23,122 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     添加场站
 </button>
+
+<!---->
+<div id="loanModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg w-100">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">贷款申请</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row w-100 align-items-center mb-3 pl-3 justify-content-between">
+                    <div class="col-sm-10 row align-items-center">
+                        <div class="col-sm-4 d-flex flex-nowrap align-items-center pl-0">
+                            <span class="text-nowrap mr-2">手机号</span>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="输入手机号">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 d-flex flex-nowrap align-items-center pl-0">
+                            <span class="text-nowrap mr-2">金额</span>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="输入金额">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="form-control">
+                                <option>待处理</option>
+                                <option>已受理</option>
+                                <option>未受理</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex col-md-2 pr-0 pl-0 align-items-center">
+                        <button type="button" class="btn btn-success btn-block btn-sm btn-size mr-1">搜索</button>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <table class="table w-100">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">手机号码</th>
+                            <th scope="col">申请金额</th>
+                            <th scope="col">预计借款时间</th>
+                            <th scope="col">状态</th>
+                            <th scope="col">申请时间</th>
+                            <th scope="col">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>13209809809</th>
+                            <td>50000.0</td>
+                            <td>2019年3月30日</td>
+                            <td>
+                                <span class="badge badge-pill badge-danger">待处理</span>
+                            </td>
+                            <td>2019年3月25日</td>
+                            <td class="d-flex">
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-success">受理</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan">拒绝</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>13209809809</th>
+                            <td>50000.0</td>
+                            <td>2019年3月30日</td>
+                            <td>
+                                <span class="badge badge-pill badge-success">已受理</span>
+                            </td>
+                            <td>2019年3月30日</td>
+                            <td class="d-flex">
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan">拒绝</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-primary">详情</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>13209809809</th>
+                            <td>50000.0</td>
+                            <td>2019年3月30日</td>
+                            <td>
+                                <span class="badge badge-pill badge-primary">未受理</span>
+                            </td>
+                            <td>2019年3月30日</td>
+                            <td class="d-flex">
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-success">受理</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-primary">详情</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <i class="iconfont icon-zuojiantou"></i>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="iconfont icon-sanjiaoright"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="userManageModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
@@ -65,7 +181,8 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog position-relative modal-dialog-centered modal-lg" role="document">
         <div class="modal-content w-100">
 
@@ -76,20 +193,42 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="d-flex flex-row justify-content-around align-items-center">
-                    <div class="d-flex flex-row justify-content-around align-items-center">
-                        <span>场站名称</span>
-                        <input type="text" placeholder="请输入场站名称">
+                <div class="row w-100 align-items-center justify-content-between">
+
+                    <!--场站名称-->
+                    <div class="d-flex align-items-center justify-content-center w-25">
+                        <span class="mr-1">状态</span>
+                        <div class='w-50 ml-1'>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="请输入场站名称" aria-label="date"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-flex flex-row justify-content-around align-items-center">
-                        <span>场站ID</span>
-                        <input type="text" placeholder="请输入场站ID">
+
+                    <!--场站ID-->
+                    <div class="d-flex align-items-center justify-content-center w-25">
+                        <span class="mr-1">场站ID</span>
+                        <div class='w-50 ml-1'>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="请输入场站ID" aria-label="date"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                        </div>
                     </div>
-                    <div class="d-flex flex-row justify-content-around align-items-center">
-                        <span>管理员</span>
-                        <input type="text" placeholder="管理员">
+
+                    <!--管理员-->
+                    <div class="d-flex align-items-center justify-content-center w-25">
+                        <span class="mr-1">管理员</span>
+                        <div class='w-50 ml-1'>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="请输入管理员姓名" aria-label="date"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                        </div>
                     </div>
-                    <button type="button" class="btn btn-success">搜索</button>
+
+                    <button type="button" class="btn btn-success btn-sm btn-size">搜索</button>
                 </div>
             </div>
 
@@ -102,22 +241,32 @@
             <!--分页指示器-->
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
-                    <li id="page_pre" class="page-item"  onclick="pageClick('pre')">
+                    <li id="page_pre" class="page-item" onclick="pageClick('pre')">
                         <a class="page-link color-gray" href="#" aria-label="Previous">
                             <span aria-hidden="true">&lt;</span>
                             <span class="sr-only">Previous</span>
                         </a>
                     </li>
-                    <li id="page1" class="page-item active" onclick="pageClick(1)"><a class="page-link color-gray" href="#">1</a></li>
-                    <li id="page2" class="page-item" onclick="pageClick(2)"><a class="page-link color-gray" href="#">2</a></li>
-                    <li id="page3" class="page-item" onclick="pageClick(3)"><a class="page-link color-gray" href="#">3</a></li>
-                    <li id="page4" class="page-item" onclick="pageClick(4)"><a class="page-link color-gray" href="#">4</a></li>
-                    <li id="page5" class="page-item" onclick="pageClick(5)"><a class="page-link color-gray" href="#">5</a></li>
-                    <li id="page6" class="page-item" onclick="pageClick(6)"><a class="page-link color-gray" href="#">6</a></li>
-                    <li id="page7" class="page-item" onclick="pageClick(7)"><a class="page-link color-gray" href="#">7</a></li>
-                    <li id="page8" class="page-item" onclick="pageClick(8)"><a class="page-link color-gray" href="#">8</a></li>
-                    <li id="page9" class="page-item" onclick="pageClick(9)"><a class="page-link color-gray" href="#">9</a></li>
-                    <li id="page10" class="page-item" onclick="pageClick(10)"><a class="page-link color-gray" href="#">10</a></li>
+                    <li id="page1" class="page-item active" onclick="pageClick(1)"><a class="page-link color-gray"
+                                                                                      href="#">1</a></li>
+                    <li id="page2" class="page-item" onclick="pageClick(2)"><a class="page-link color-gray"
+                                                                               href="#">2</a></li>
+                    <li id="page3" class="page-item" onclick="pageClick(3)"><a class="page-link color-gray"
+                                                                               href="#">3</a></li>
+                    <li id="page4" class="page-item" onclick="pageClick(4)"><a class="page-link color-gray"
+                                                                               href="#">4</a></li>
+                    <li id="page5" class="page-item" onclick="pageClick(5)"><a class="page-link color-gray"
+                                                                               href="#">5</a></li>
+                    <li id="page6" class="page-item" onclick="pageClick(6)"><a class="page-link color-gray"
+                                                                               href="#">6</a></li>
+                    <li id="page7" class="page-item" onclick="pageClick(7)"><a class="page-link color-gray"
+                                                                               href="#">7</a></li>
+                    <li id="page8" class="page-item" onclick="pageClick(8)"><a class="page-link color-gray"
+                                                                               href="#">8</a></li>
+                    <li id="page9" class="page-item" onclick="pageClick(9)"><a class="page-link color-gray"
+                                                                               href="#">9</a></li>
+                    <li id="page10" class="page-item" onclick="pageClick(10)"><a class="page-link color-gray" href="#">10</a>
+                    </li>
                     <li id="page_next" class="page-item" onclick="pageClick('next')">
                         <a class="page-link color-gray" href="#" aria-label="Next">
                             <span aria-hidden="true">&gt;</span>
@@ -126,11 +275,9 @@
                     </li>
                 </ul>
             </nav>
-
-
             <!--<div class="modal-footer">-->
-                <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-                <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+            <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
             <!--</div>-->
         </div>
     </div>
@@ -138,44 +285,47 @@
 </div>
 </body>
 <script type="text/javascript">
-    let page = 1
+  let page = 1
 
-    function pageClick(num){
+  function pageClick(num) {
 
-      $("#page"+page).removeClass("active")
-      if (num === 'pre'){
-        if (page > 1){
-          page--
-        }
-      }else if (num === 'next') {
-        if (page < 10) {
-          page++
-        }
-      }else {
-        page = num
+    $("#page" + page).removeClass("active")
+    if (num === 'pre') {
+      if (page > 1) {
+        page--
       }
-
-      $("#page"+page).addClass("active")
-      console.log(page)
-
-      if (page == 10){
-        $("#page_next").addClass("disabled")
-      }else{
-        $("#page_next").removeClass("disabled")
+    } else if (num === 'next') {
+      if (page < 10) {
+        page++
       }
-
-      if (page == 1){
-        $("#page_pre").addClass("disabled")
-      }else{
-        $("#page_pre").removeClass("disabled")
-      }
-
-      
+    } else {
+      page = num
     }
 
+    $("#page" + page).addClass("active")
+    console.log(page)
+
+    if (page == 10) {
+      $("#page_next").addClass("disabled")
+    } else {
+      $("#page_next").removeClass("disabled")
+    }
+
+    if (page == 1) {
+      $("#page_pre").addClass("disabled")
+    } else {
+      $("#page_pre").removeClass("disabled")
+    }
+  }
 
 </script>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </html>
