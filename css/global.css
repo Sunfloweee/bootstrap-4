@@ -54,3 +54,11 @@
     font-size: 14px;
     flex-shrink: 1;
 }
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.cursor {
+    cursor: pointer;
+}

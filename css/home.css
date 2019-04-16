@@ -54,6 +54,12 @@ header {
     align-items: center;
 }
 
+.sm-circle-item {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+
 .sub-title {
     font-size: 12px;
 }
@@ -77,7 +83,7 @@ header {
 }
 
 .modal-fixed-right {
-    left: inherit;
+    /*left: inherit;*/
 }
 
 .modal-base-title {
@@ -96,3 +102,12 @@ header {
     height: 1rem;
 }
 
+.del-user {
+    position: absolute;
+    top: -8px;
+    right: -6px;
+}
+
+.add-icon {
+    font-size: 45px;
+}

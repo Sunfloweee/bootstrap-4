@@ -63,7 +63,7 @@
                 </div>
                 <span>客户信贷</span>
             </div>
-            <div class="row flex-column icon-item justify-content-center align-items-center">
+            <div class="row flex-column icon-item justify-content-center align-items-center" id="info-add">
                 <div class="icon-img-item primary-bg-color">
                     <img src="./image/add.png" alt="" class="img-fluid icon-img">
                 </div>
@@ -643,22 +643,22 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-<!--            基本信息-->
+            <!--            基本信息-->
             <div class="mb-4 border-bottom mt-4">
-                <span class="modal-base-title">基本信息</span>
+                <span class="modal-base-title ml-3 mt-2">基本信息</span>
                 <div class="modal-body pl-5 pr-5">
                     <div class="row align-items-center flex-nowrap mb-3">
                         <div class="col-sm-3 text-nowrap color-gray text-right pr-0">类型</div>
                         <div class="col-sm-9 ml-3 w-70 row">
                             <div class="custom-control custom-radio radio custom-control-inline">
                                 <input type="radio" class="custom-control-input"
-                                       name="customerType" id="person" checked="">
-                                <label class="custom-control-label" for="person">是</label>
+                                       name="customerType" id="num1" checked="">
+                                <label class="custom-control-label" for="num1">是</label>
                             </div>
                             <div class="custom-control custom-radio radio custom-control-inline">
                                 <input type="radio" class="custom-control-input"
-                                       name="customerType" id="company" checked="">
-                                <label class="custom-control-label" for="company">否</label>
+                                       name="customerType" id="num2" checked="">
+                                <label class="custom-control-label" for="num2">否</label>
                             </div>
                         </div>
                     </div>
@@ -709,7 +709,7 @@
                     </div>
                 </div>
             </div>
-<!--            配偶信息-->
+            <!--            配偶信息-->
             <div>
                 <span class="modal-base-title ml-3 mt-2">配偶信息</span>
                 <div class="modal-body pl-5 pr-5">
@@ -745,7 +745,7 @@
                     </div>
                 </div>
             </div>
-<!--            家庭成员-->
+            <!--            家庭成员-->
             <div>
                 <span class="modal-base-title ml-3 mt-2">家庭成员1</span>
                 <div class="modal-body pl-5 pr-5">
@@ -781,9 +781,391 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center ml-3 mb-3">
+            <div class="row justify-content-center ml-3 mb-4">
                 <button type="button" class="col-2  mr-2 btn w-75 btn-success btn-sm primary-bg-color">保存</button>
                 <button type="button" class="col-2 btn w-75 btn-success btn-sm btn-secondary">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--过桥信息录入-->
+<div id="infoAddModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg w-100">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">过桥业务列表</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row w-100 align-items-center mb-3 pl-3 justify-content-between">
+                    <div class="col-sm-10 row align-items-center">
+                        <div class="col-sm-3 d-flex flex-nowrap align-items-center pl-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control form_datetime" placeholder="客户名称"
+                                       aria-label="date"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-sm-3 d-flex flex-nowrap align-items-center pl-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control form_datetime" placeholder="证件号码"
+                                       aria-label="date"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-sm-3 d-flex flex-nowrap align-items-center pl-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control form_datetime" placeholder="信贷编号"
+                                       aria-label="date"
+                                       aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control">
+                                <option>启用中</option>
+                                <option>禁用中</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex col-md-2 pr-0 pl-0 align-items-center">
+                        <button type="button" class="btn btn-success btn-block btn-sm btn-size mr-1">搜索</button>
+                    </div>
+                </div>
+                <div class="row justify-content-between w-100 ml-0 mr-0 pr-3">
+                    <button type="button" class="btn btn-success btn-sm btn-size" id="add-bridge">添加过桥</button>
+                    <div>
+                        <span>数量</span>
+                        <span>258</span>
+                    </div>
+                </div>
+                <div class="mt-3 table fs-14">
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                            <tr>
+                                <th scope="col" class="col text-nowrap text-center">名称</th>
+                                <th scope="col" class="col text-nowrap text-center">证件号码</th>
+                                <th scope="col" class="col text-nowrap text-center">信贷编号</th>
+                                <th scope="col" class="col text-nowrap text-center">状态</th>
+                                <th scope="col" class="col text-nowrap text-center">客户经理A</th>
+                                <th scope="col" class="col text-nowrap text-center">客户经理B</th>
+                                <th scope="col" class="col text-nowrap text-center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th>王菲</th>
+                                <td>3425235234234</td>
+                                <td>XD00001</td>
+                                <td>
+                                    <span class="badge badge-pill badge-warning color-white">审批中</span>
+                                </td>
+                                <td>谢霆锋</td>
+                                <td>刘德华</td>
+                                <td class="d-flex">
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-primary">详情</button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-primary">修改</button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-warning">审批</button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-warning">放款</button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-success">回款</button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-success">归档</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>王菲</th>
+                                <td>3425235234234</td>
+                                <td>XD00001</td>
+                                <td>
+                                    <span class="badge badge-pill badge-warning color-white">审批中</span>
+                                </td>
+                                <td>谢霆锋</td>
+                                <td>刘德华</td>
+                                <td class="d-flex">
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-primary">详情</button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-primary">修改</button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-warning">审批</button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-warning">放款</button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-success">回款</button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-success">归档</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <i class="iconfont icon-zuojiantou"></i>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="iconfont icon-sanjiaoright"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--过桥业务录入-->
+<div id="addBridgeModal" class="modal fade modal-fixed-right" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: absolute; right: 0; width: 79%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加客户</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--            基本信息-->
+            <div class="mb-4 border-bottom mt-4">
+                <span class="modal-base-title ml-3 mt-2">基础信息</span>
+                <div class="modal-body pl-5 pr-5 row">
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">信贷标识</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="信贷标识">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">客户名称</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="客户名称">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">出借人</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="出借人">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">贷款余额</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="贷款余额">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">到款日期</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="到款日期">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">批复情况</div>
+                        <div class="col-sm-9 ml-3 w-70 row">
+                            <div class="custom-control custom-radio radio custom-control-inline">
+                                <input type="radio" class="custom-control-input"
+                                       name="customerType" id="person" checked="">
+                                <label class="custom-control-label" for="person">是</label>
+                            </div>
+                            <div class="custom-control custom-radio radio custom-control-inline">
+                                <input type="radio" class="custom-control-input"
+                                       name="customerType" id="company" checked="">
+                                <label class="custom-control-label" for="company">否</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">申请用款时间</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="申请用款时间">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">申请过桥时间</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="申请过桥时间">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">客户经理A</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="客户经理A">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">权重</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <span>75%</span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">客户经理B</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="客户经理B">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">权重</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <span>75%</span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">推荐人</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="推荐人">
+                        </div>
+                    </div>
+                    <div class="row align-items-center flex-nowrap mb-3 col-6">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">备注</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <textarea class="form-control" placeholder="输入拒绝理由" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--第三方账户-->
+            <div>
+                <span class="modal-base-title ml-3 mt-2">第三方账户</span>
+                <div class="modal-body pl-5 pr-5 row">
+                    <div class="col-6 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">户名</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="户名">
+                        </div>
+                    </div>
+                    <div class="col-6 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">开户行</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="开户行">
+                        </div>
+                    </div>
+                    <div class="col-6 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">账户</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="账户">
+                        </div>
+                    </div>
+                    <div class="col-6 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">来源</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="来源">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--放款详情-->
+            <div>
+                <span class="modal-base-title ml-3 mt-2">放款详情</span>
+                <div class="modal-body pl-5 pr-5 row">
+                    <div class="col-7 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">预收保证金</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="预收保证金">
+                        </div>
+                    </div>
+                    <div class="col-7 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">附件</div>
+                        <div class="col-sm-9 ml-3 w-70 d-flex flex-column">
+                            <div class="primary-color mb-2 cursor">
+                                <i class="iconfont icon-fujian primary-color"></i>
+                                <span>上传借据附件</span>
+                            </div>
+                            <div class="primary-color cursor">
+                                <i class="iconfont icon-tubiaozhizuomoban primary-color"></i>
+                                <span>添加担保</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span class="modal-base-title ml-3 mt-2">担保措施（选填）</span>
+                <div class="modal-body pl-5 pr-5 row">
+                    <div class="row align-items-center flex-nowrap mb-3 col-7">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">类型</div>
+                        <div class="col-sm-9 ml-3 w-70 row">
+                            <div class="custom-control custom-radio radio custom-control-inline">
+                                <input type="radio" class="custom-control-input"
+                                       name="customerType" id="type1" checked="">
+                                <label class="custom-control-label" for="type1">个人</label>
+                            </div>
+                            <div class="custom-control custom-radio radio custom-control-inline">
+                                <input type="radio" class="custom-control-input"
+                                       name="customerType" id="type2" checked="">
+                                <label class="custom-control-label" for="type2">企业</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">姓名</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="col-6 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">电话</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="电话">
+                        </div>
+                    </div>
+                    <div class="col-6 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">身份证上传</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="身份证上传">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span class="modal-base-title ml-3 mt-2">附件（选填）</span>
+                <div class="modal-body pl-5 pr-5 row">
+                    <div class="col-7 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">附件说明</div>
+                        <div class="col-sm-9 ml-3 w-70">
+                            <input type="text" class="form-control" placeholder="附件说明">
+                        </div>
+                    </div>
+                    <div class="col-7 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-3 text-nowrap color-gray text-right pr-0">附件上传</div>
+                        <div class="col-sm-9 ml-3 w-70 d-flex flex-column justify-content-center">
+                            <div class="primary-color mb-2 cursor">
+                                <i class="iconfont icon-fujian primary-color"></i>
+                                <span>附件上传</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span class="modal-base-title ml-3 mt-2">审批人</span>
+                <div class="modal-body pl-5 pr-5 row">
+                    <div class="col-12 row align-items-center flex-nowrap mb-3">
+                        <div class="col-sm-2 text-nowrap color-gray text-right pr-0">审批人</div>
+                        <div class="col-sm-9 ml-3 w-100 d-flex justify-content-end align-items-center">
+                            <div class="d-flex align-items-center mr-2 position-relative">
+                                <div class="d-flex flex-column align-items-center fs-12">
+                                    <div class="circle-item primary-bg-color color-white mb-1 sm-circle-item">晶青</div>
+                                    <span class="fs-12 color-gray">黄晶青</span>
+                                </div>
+                                <i class="iconfont icon-guanbi del-user"></i>
+                            </div>
+                            <i class="iconfont icon-youjiantou"></i>
+                            <i class="iconfont icon-tubiaozhizuomoban add-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center ml-3 mb-4">
+                <button type="button" class="col-2  mr-2 btn w-75 btn-success btn-sm primary-bg-color">保存</button>
+                <button type="button" class="col-2 btn w-75 btn-success btn-sm btn-outline-secondary">返回</button>
             </div>
         </div>
     </div>
@@ -831,5 +1213,16 @@
   $("#add-customer").click(function () {
     $('#addCustomerModal').modal('show');
   });
+
+  // 添加过桥业务
+  $("#info-add").click(function () {
+    $('#infoAddModal').modal('show');
+  });
+
+  // 过桥业务录入
+  $("#add-bridge").click(function () {
+    $('#addBridgeModal').modal('show');
+  });
+
 </script>
 </html>
