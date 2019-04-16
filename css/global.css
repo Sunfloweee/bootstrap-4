@@ -22,11 +22,19 @@
 }
 
 /* 红色 */
+.danger-color {
+    color: #ed6853;
+}
+
 .danger-bg-color {
     background: #ed6853;
 }
 
 /* 黄色 */
+.warn-color {
+    color: #f0af48;
+}
+
 .warn-bg-color {
     background: #f0af48;
 }
