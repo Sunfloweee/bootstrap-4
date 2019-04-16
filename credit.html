@@ -12,6 +12,18 @@
 
         }
 
+        .w-13{
+            width: 13%;
+        }
+
+        .delete_icon{
+            position: absolute;
+            top: 0;
+            right: 10px;
+            width: 30px;
+            height: 100%;
+        }
+
     </style>
 </head>
 <body>
@@ -20,18 +32,18 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userManageModal">
     用户管理
 </button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loanModal">
     添加场站
 </button>
 
-<!---->
+<!--客户贷款列表-->
 <div id="loanModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg w-100">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">贷款申请</h5>
+                <h5 class="modal-title">客户贷款列表</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -40,79 +52,95 @@
                 <div class="row w-100 align-items-center mb-3 pl-3 justify-content-between">
                     <div class="col-sm-10 row align-items-center">
                         <div class="col-sm-4 d-flex flex-nowrap align-items-center pl-0">
-                            <span class="text-nowrap mr-2">手机号</span>
+                            <span class="text-nowrap mr-2">客户名称</span>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="输入手机号">
+                                <input type="text" class="form-control" placeholder="客户名称">
                             </div>
                         </div>
                         <div class="col-sm-4 d-flex flex-nowrap align-items-center pl-0">
-                            <span class="text-nowrap mr-2">金额</span>
+                            <span class="text-nowrap mr-2">证件号码</span>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="输入金额">
+                                <input type="text" class="form-control" placeholder="证件号码">
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <select class="form-control">
-                                <option>待处理</option>
-                                <option>已受理</option>
-                                <option>未受理</option>
-                            </select>
+                        <div class="col-sm-4 d-flex flex-nowrap align-items-center pl-0">
+                            <span class="text-nowrap mr-2">出借人</span>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="出借人">
+                            </div>
                         </div>
                     </div>
                     <div class="d-flex col-md-2 pr-0 pl-0 align-items-center">
                         <button type="button" class="btn btn-success btn-block btn-sm btn-size mr-1">搜索</button>
                     </div>
                 </div>
+                <div class="row justify-content-between w-100 ml-0 mr-0 pr-3">
+                    <button type="button" class="btn btn-success btn-sm btn-size" id="add-credit-btn">添加信贷</button>
+                    <div>
+                        <span>数量</span>
+                        <span>258</span>
+                    </div>
+                </div>
                 <div class="mt-3">
                     <table class="table w-100">
                         <thead class="thead-light">
                         <tr>
-                            <th scope="col">手机号码</th>
-                            <th scope="col">申请金额</th>
-                            <th scope="col">预计借款时间</th>
+                            <th scope="col">名称</th>
+                            <th scope="col">证件号码</th>
+                            <th scope="col">出借人</th>
+                            <th scope="col">信贷编号</th>
+                            <th scope="col">金额</th>
                             <th scope="col">状态</th>
-                            <th scope="col">申请时间</th>
                             <th scope="col">操作</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th>13209809809</th>
-                            <td>50000.0</td>
-                            <td>2019年3月30日</td>
+                        <tr id="credit-btn">
+                            <th>王菲</th>
+                            <td>123123123123123</td>
+                            <td>农业银行</td>
+                            <td>xd123123123</td>
+                            <td>1000</td>
                             <td>
-                                <span class="badge badge-pill badge-danger">待处理</span>
+                                <span class="badge badge-pill badge-info">正常</span>
                             </td>
-                            <td>2019年3月25日</td>
                             <td class="d-flex">
-                                <button type="button" class="btn mr-1 btn-sm btn-outline-success">受理</button>
-                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan">拒绝</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info" onclick="creditDetail()">详情</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info refuse-loan">修改</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan" onclick="trace()">追踪</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-success refuse-loan">标记结清</button>
                             </td>
                         </tr>
-                        <tr>
-                            <th>13209809809</th>
-                            <td>50000.0</td>
-                            <td>2019年3月30日</td>
+                        <tr id="credit-btn2">
+                            <th>王菲</th>
+                            <td>123123123123123</td>
+                            <td>农业银行</td>
+                            <td>xd123123123</td>
+                            <td>1000</td>
                             <td>
-                                <span class="badge badge-pill badge-success">已受理</span>
+                                <span class="badge badge-pill badge-danger">逾期</span>
                             </td>
-                            <td>2019年3月30日</td>
                             <td class="d-flex">
-                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan">拒绝</button>
-                                <button type="button" class="btn mr-1 btn-sm btn-outline-primary">详情</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info" onclick="creditDetail()">详情</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info refuse-loan">修改</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan" onclick="trace()">追踪</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-success refuse-loan">标记结清</button>
                             </td>
                         </tr>
-                        <tr>
-                            <th>13209809809</th>
-                            <td>50000.0</td>
-                            <td>2019年3月30日</td>
+                        <tr id="credit-btn3">
+                            <th>王菲</th>
+                            <td>123123123123123</td>
+                            <td>农业银行</td>
+                            <td>xd123123123</td>
+                            <td>1000</td>
                             <td>
-                                <span class="badge badge-pill badge-primary">未受理</span>
+                                <span class="badge badge-pill badge-success">还清</span>
                             </td>
-                            <td>2019年3月30日</td>
                             <td class="d-flex">
-                                <button type="button" class="btn mr-1 btn-sm btn-outline-success">受理</button>
-                                <button type="button" class="btn mr-1 btn-sm btn-outline-primary">详情</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info" onclick="creditDetail()">详情</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info refuse-loan">修改</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan" onclick="trace()">追踪</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-success refuse-loan">标记结清</button>
                             </td>
                         </tr>
                         </tbody>
@@ -139,6 +167,202 @@
         </div>
     </div>
 </div>
+
+
+<!--信贷详情-->
+<div id="credit-detail" class="modal fade modal-fixed-right" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: absolute; right: 0; width: 79%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">信贷详情</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="d-flex flex-row justify-content-start align-items-center">
+                <span class="m-3 color-gray w-13">客户户名</span>
+                <span>王菲</span>
+            </div>
+            <div class="d-flex flex-row justify-content-start align-items-center">
+                <span class="m-3 color-gray w-13">证件号码</span>
+                <span>123123123897123891</span>
+            </div>
+            <div class="d-flex flex-row justify-content-start align-items-center">
+                <span class="m-3 color-gray w-13">信贷编号</span>
+                <span>xg19238719283</span>
+            </div>
+            <div class="d-flex flex-row justify-content-start align-items-center">
+                <span class="m-3 color-gray w-13">出借日期</span>
+                <span>2019-01-01</span>
+            </div>
+            <div class="d-flex flex-row justify-content-start align-items-center">
+                <span class="m-3 color-gray w-13">到期日期</span>
+                <span>2019-10-01</span>
+            </div>
+            <div class="d-flex flex-row justify-content-start align-items-center">
+                <span class="m-3 color-gray w-13">金额</span>
+                <span>1000.00</span>
+            </div>
+            <div class="d-flex flex-row justify-content-start align-items-center">
+                <span class="m-3 color-gray w-13">利率</span>
+                <span>0.43</span>
+            </div>
+            <div class="d-flex flex-row justify-content-start align-items-center">
+                <span class="m-3 color-gray w-13">保证措施</span>
+                <span>担保</span>
+            </div>
+            <div class="d-flex flex-row justify-content-start align-items-center">
+                <span class="m-3 color-gray w-13">出借人</span>
+                <span>农业银行</span>
+            </div>
+            <div class="d-flex flex-row justify-content-start align-items-center">
+                <span class="m-3 color-gray w-13">情况说明</span>
+                <span>说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容</span>
+            </div>
+
+            <div class="border-top">
+                <button type="button" class="btn btn-light btn-sm btn-size m-3">返回</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--添加信贷-->
+<div id="add-credit" class="modal fade modal-fixed-right" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: absolute; right: 0; width: 79%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">添加信贷</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6 mt-3">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">客户凭证</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">出借人</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">出借日期</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">到期时间</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">金额</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">利率</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">保证措施</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <select class="form-control" id="measure">
+                        <option>抵押</option>
+                        <option>担保</option>
+                        <option>质押</option>
+                        <option>信用</option>
+                        <option>其他</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">情况说明</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <textarea class="form-control" id="description-textarea" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="border-top">
+                <button type="button" class="btn btn-success btn-sm btn-size m-3">确定</button>
+                <button type="button" class="btn btn-light btn-sm btn-size m-3">取消</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--追踪情况-->
+<div id="trace" class="modal fade modal-fixed-right" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: absolute; right: 0; width: 79%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">追踪情况</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="flex-row justify-content-between align-items-center flex-nowrap p-3 border-bottom">
+                <div class="flex-column align-items-center flex-nowrap">
+                    <div class="d-flex flex-row align-items-center justify-content-between w-75">
+                        <div>张三</div>
+                        <div class="color-gray">2019-01-07 14：22：11</div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-10 mt-2">
+                            情况说明情况说明情况说明情况说明情况情况说明情况说明情况说明情况说明情况情况说明情况说明情况说明情况说明情况说明情况说明情况说明情况说明情况说明
+                        </div>
+                        <div class="col-2 row justify-content-center">
+                            <img src="./image/delete.png" class="" width="30" height="30">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-row justify-content-between align-items-center flex-nowrap p-3 border-bottom">
+                <div class="flex-column align-items-center flex-nowrap">
+                    <div class="d-flex flex-row align-items-center justify-content-between w-75">
+                        <div>张三</div>
+                        <div class="color-gray">2019-01-07 14：22：11</div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-10 mt-2">
+                            情况说明情况说明情况说明情况说明情况说明情况说明情况说明情况说明情况说明
+                        </div>
+                        <div class="col-2 row justify-content-center">
+                            <img src="./image/delete.png" class="" width="30" height="30">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <textarea class="form-control w-75 ml-4 mt-3" id="trace_textarea" rows="4"></textarea>
+            <div>
+                <button type="button" class="btn btn-success btn-sm btn-size m-3">确定</button>
+                <button type="button" class="btn btn-light btn-sm btn-size m-3">取消</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 <div id="userManageModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
@@ -180,111 +404,31 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog position-relative modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content w-100">
-
-            <div class="modal-header bg-color color-title">
-                <h5 class="modal-title w-100 text-center" id="exampleModalLabel">场站列表</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row w-100 align-items-center justify-content-between">
-
-                    <!--场站名称-->
-                    <div class="d-flex align-items-center justify-content-center w-25">
-                        <span class="mr-1">状态</span>
-                        <div class='w-50 ml-1'>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入场站名称" aria-label="date"
-                                       aria-describedby="basic-addon1">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--场站ID-->
-                    <div class="d-flex align-items-center justify-content-center w-25">
-                        <span class="mr-1">场站ID</span>
-                        <div class='w-50 ml-1'>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入场站ID" aria-label="date"
-                                       aria-describedby="basic-addon1">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--管理员-->
-                    <div class="d-flex align-items-center justify-content-center w-25">
-                        <span class="mr-1">管理员</span>
-                        <div class='w-50 ml-1'>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="请输入管理员姓名" aria-label="date"
-                                       aria-describedby="basic-addon1">
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="button" class="btn btn-success btn-sm btn-size">搜索</button>
-                </div>
-            </div>
-
-            <div class="second d-flex flex-row justify-content-between align-items-center m-1">
-                <button type="button" class="btn btn-success">+添加场站</button>
-                <span class="color-gray">场站数量123</span>
-            </div>
-
-
-            <!--分页指示器-->
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li id="page_pre" class="page-item" onclick="pageClick('pre')">
-                        <a class="page-link color-gray" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&lt;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <li id="page1" class="page-item active" onclick="pageClick(1)"><a class="page-link color-gray"
-                                                                                      href="#">1</a></li>
-                    <li id="page2" class="page-item" onclick="pageClick(2)"><a class="page-link color-gray"
-                                                                               href="#">2</a></li>
-                    <li id="page3" class="page-item" onclick="pageClick(3)"><a class="page-link color-gray"
-                                                                               href="#">3</a></li>
-                    <li id="page4" class="page-item" onclick="pageClick(4)"><a class="page-link color-gray"
-                                                                               href="#">4</a></li>
-                    <li id="page5" class="page-item" onclick="pageClick(5)"><a class="page-link color-gray"
-                                                                               href="#">5</a></li>
-                    <li id="page6" class="page-item" onclick="pageClick(6)"><a class="page-link color-gray"
-                                                                               href="#">6</a></li>
-                    <li id="page7" class="page-item" onclick="pageClick(7)"><a class="page-link color-gray"
-                                                                               href="#">7</a></li>
-                    <li id="page8" class="page-item" onclick="pageClick(8)"><a class="page-link color-gray"
-                                                                               href="#">8</a></li>
-                    <li id="page9" class="page-item" onclick="pageClick(9)"><a class="page-link color-gray"
-                                                                               href="#">9</a></li>
-                    <li id="page10" class="page-item" onclick="pageClick(10)"><a class="page-link color-gray" href="#">10</a>
-                    </li>
-                    <li id="page_next" class="page-item" onclick="pageClick('next')">
-                        <a class="page-link color-gray" href="#" aria-label="Next">
-                            <span aria-hidden="true">&gt;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <!--<div class="modal-footer">-->
-            <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-            <!--</div>-->
-        </div>
-    </div>
-</div>
 </div>
 </body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+  $("#add-credit-btn").click(function () {
+    $("#add-credit").modal("show")
+  })
+
+  function creditDetail(){
+    $("#credit-detail").modal("show")
+  }
+
+  function trace(){
+    $("#trace").modal("show")
+  }
+
   let page = 1
 
   function pageClick(num) {
@@ -319,13 +463,5 @@
   }
 
 </script>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+
 </html>
