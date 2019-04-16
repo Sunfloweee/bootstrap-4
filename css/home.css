@@ -111,3 +111,22 @@ header {
 .add-icon {
     font-size: 45px;
 }
+
+.flow {
+    font-family: "iconfont" !important;
+    position: relative !important;
+}
+
+.flow:before {
+    color: #000;
+    content: '\e634';
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    left: 2vw;
+    top: 92%;
+}
+
+.flow:last-child:before {
+    content: '';
+}
