@@ -1,3 +1,7 @@
+body {
+    font-size: 14px;
+}
+
 /*背景颜色*/
 .bg-color {
     background: #f6f6f6;
@@ -58,15 +62,23 @@
     width: 65% !important;
 }
 
+.fs-12 {
+    font-size: 12px;
+}
+
 .fs-14 {
     font-size: 14px;
     flex-shrink: 1;
 }
 
-.fs-12 {
-    font-size: 12px;
+.fs-50 {
+    font-size: 50px;
 }
 
 .cursor {
     cursor: pointer;
+}
+
+.left-inherit {
+    left: inherit !important;
 }
