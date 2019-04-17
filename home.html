@@ -39,72 +39,71 @@
     </header>
     <main class="container w-100 d-flex justify-content-center mt-3">
         <div class="row justify-content-md-center ml-0 mr-0">
-            <section
-                    class="col-sm-12 col-md-6 justify-content-md-between ml-0 mr-0 offset-md-1 row mr-md-3 justify-content-sm-center left-main ">
-                <div class="col-md-3 d-flex flex-column icon-item justify-content-center align-items-center"
+            <section class="col-sm-12 col-md-7 justify-content-md-between ml-0 mr-0  row mr-md-3 justify-content-sm-center left-main ">
+                <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
                      id="userManage">
                     <div class="icon-img-item danger-bg-color">
                         <img src="./image/user-manage.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>用户管理</span>
                 </div>
-                <div class="col-md-3 d-flex flex-column icon-item justify-content-center align-items-center"
+                <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
                      id="loan">
                     <div class="icon-img-item primary-bg-color">
                         <img src="./image/loan.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>贷款申请</span>
                 </div>
-                <div class="col-md-3 d-flex flex-column icon-item justify-content-center align-items-center"
+                <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
                      id="add-info">
                     <div class="icon-img-item warn-bg-color">
                         <img src="./image/customer.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>客户信息</span>
                 </div>
-                <div class="col-md-3 d-flex flex-column icon-item justify-content-center align-items-center"
+                <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
                      id="credit">
                     <div class="icon-img-item sky-bg-color">
                         <img src="./image/money.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>客户信贷</span>
                 </div>
-                <div class="col-md-3 d-flex flex-column icon-item justify-content-center align-items-center"
+                <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
                      id="info-add">
                     <div class="icon-img-item primary-bg-color">
                         <img src="./image/add.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>过桥信息录入</span>
                 </div>
-                <div class="col-md-3 d-flex flex-column icon-item justify-content-center align-items-center"
+                <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
                      id="examine">
                     <div class="icon-img-item warn-bg-color">
                         <img src="./image/approval.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>审批</span>
                 </div>
-                <div class="col-md-3 d-flex flex-column icon-item justify-content-center align-items-center"
+                <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
                 id="grant">
                     <div class="icon-img-item sky-bg-color">
                         <img src="./image/advance.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>放款</span>
                 </div>
-                <div class="col-md-3 d-flex flex-column icon-item justify-content-center align-items-center"
+                <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
                 id="recycle">
                     <div class="icon-img-item danger-bg-color">
                         <img src="./image/money-back.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>回款</span>
                 </div>
-                <div class="col-md-3 d-flex flex-column icon-item justify-content-center align-items-center"
+                <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
                 id="archiving">
                     <div class="icon-img-item violet-bg-color">
                         <img src="./image/file.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>归档</span>
                 </div>
-                <div class="col-md-3 d-flex flex-column icon-item justify-content-center align-items-center">
+                <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center">
                     <div class="icon-img-item sky-bg-color">
                         <img src="./image/setting.png" alt="" class="img-fluid icon-img">
                     </div>
@@ -1600,8 +1599,8 @@
     </div>
 </div>
 
-<!--客户贷款列表-->
-<div id="creditModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+<!--客户信贷-->
+<div id="creditModal" class="modal fade bd-example-modal-lg left-inherit" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg w-100">
@@ -1986,7 +1985,7 @@
 <div id="archivingModal" class="modal fade modal-fixed-right" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: absolute; right: 0; width: 79%;">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">归档信息录入</h5>
@@ -2737,7 +2736,6 @@
   $("#archiving").click(function () {
     $("#archivingModal").modal("show")
   })
-
 
 
 </script>
