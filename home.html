@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/bootstrap-datetimepicker.min.css">
 </head>
-<body class="bg-color fs-14">
+<body class="bg-color">
 <div class="home">
     <header class="w-100 color-bg-white">
         <section class="container h-100">
@@ -1144,8 +1144,7 @@
                                 <td>谢霆锋</td>
                                 <td>刘德华</td>
                                 <td class="d-flex">
-                                    <button type="button" class="btn mr-1 btn-sm btn-outline-primary bridge-detail">详情
-                                    </button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-primary">详情</button>
                                     <button type="button" class="btn mr-1 btn-sm btn-outline-primary">修改</button>
                                     <button type="button" class="btn mr-1 btn-sm btn-outline-warning">审批</button>
                                     <button type="button" class="btn mr-1 btn-sm btn-outline-warning">放款</button>
@@ -1163,8 +1162,7 @@
                                 <td>谢霆锋</td>
                                 <td>刘德华</td>
                                 <td class="d-flex">
-                                    <button type="button" class="btn mr-1 btn-sm btn-outline-primary bridge-detail">详情
-                                    </button>
+                                    <button type="button" class="btn mr-1 btn-sm btn-outline-primary">详情</button>
                                     <button type="button" class="btn mr-1 btn-sm btn-outline-primary">修改</button>
                                     <button type="button" class="btn mr-1 btn-sm btn-outline-warning">审批</button>
                                     <button type="button" class="btn mr-1 btn-sm btn-outline-warning">放款</button>
@@ -1449,14 +1447,14 @@
     </div>
 </div>
 
-<!--过桥业务详情-->
-<div id="bridgeModal" class="modal fade modal-fixed-right" tabindex="-1" role="dialog"
+<!--客户贷款列表-->
+<div id="creditModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: absolute; right: 0; width: 79%;">
+    <div class="modal-dialog modal-lg w-100">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">过桥业务详情</h5>
+                <h5 class="modal-title">客户贷款列表</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -1659,6 +1657,7 @@
                 </div>
             </div>
             <!--审核流程-->
+            <!--审核流程-->
             <div>
                 <span class="modal-base-title ml-3 mt-2">审批流程</span>
                 <div class="modal-body pl-5 pr-5">
@@ -1709,6 +1708,7 @@
                     </div>
                 </div>
             </div>
+
             <!--发放-->
             <div>
                 <span class="modal-base-title ml-3 mt-2">发放</span>
@@ -1829,6 +1829,91 @@
                 <div class="col-2 offset-1">
                     <button type="button" class="col btn w-75 btn-success btn-sm btn-outline-secondary">返回</button>
                 </div>
+                <div class="mt-3">
+                    <table class="table w-100">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">名称</th>
+                            <th scope="col">证件号码</th>
+                            <th scope="col">出借人</th>
+                            <th scope="col">信贷编号</th>
+                            <th scope="col">金额</th>
+                            <th scope="col">状态</th>
+                            <th scope="col">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>王菲</th>
+                            <td>123123123123123</td>
+                            <td>农业银行</td>
+                            <td>xd123123123</td>
+                            <td>1000</td>
+                            <td>
+                                <span class="badge badge-pill badge-info">正常</span>
+                            </td>
+                            <td class="d-flex">
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info">详情</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info refuse-loan">修改</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan">追踪</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-success refuse-loan">标记结清
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>王菲</th>
+                            <td>123123123123123</td>
+                            <td>农业银行</td>
+                            <td>xd123123123</td>
+                            <td>1000</td>
+                            <td>
+                                <span class="badge badge-pill badge-danger">逾期</span>
+                            </td>
+                            <td class="d-flex">
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info">详情</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info refuse-loan">修改</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan">追踪</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-success refuse-loan">标记结清
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>王菲</th>
+                            <td>123123123123123</td>
+                            <td>农业银行</td>
+                            <td>xd123123123</td>
+                            <td>1000</td>
+                            <td>
+                                <span class="badge badge-pill badge-success">还清</span>
+                            </td>
+                            <td class="d-flex">
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info">详情</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-info refuse-loan">修改</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-danger refuse-loan">追踪</button>
+                                <button type="button" class="btn mr-1 btn-sm btn-outline-success refuse-loan">标记结清
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">
+                                <i class="iconfont icon-zuojiantou"></i>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">
+                                <i class="iconfont icon-sanjiaoright"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
@@ -1892,6 +1977,11 @@
   $(".bridge-detail").click(function () {
     $('#bridgeModal').modal('show');
   });
+
+  //客户信贷
+  $("#credit").click(function () {
+    $('#creditModal').modal('show');
+  })
 
   // 客户信息 -> 添加客户
   $("#add-customer").click(function () {
