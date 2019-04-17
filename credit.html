@@ -84,8 +84,8 @@
             </div>
             <div class="row align-items-center flex-nowrap mb-3 col-6">
                 <div class="col-sm-3 text-nowrap color-gray text-right pr-0">费用减免</div>
-                <div class="col-sm-9 ml-3 w-70 h-50">
-                    <input type="text" class="form-control" placeholder="">
+                <div class="ml-4 w-70 p-4 bg-color">
+                    <img src="./image/uploadpic.png" alt="">
                 </div>
             </div>
 
@@ -97,8 +97,107 @@
         </div>
     </div>
 </div>
+
 <!-- 归档 -->
+<div id="archivingModal" class="modal fade modal-fixed-right" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: absolute; right: 0; width: 79%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">归档信息录入</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6 mt-3">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">移交人</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">接收人</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">档案移交日期</div>
+                <div class="col-sm-8 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+                <div class="col-sm-1">
+                    天
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">档案移交表</div>
+                <div class="ml-4 w-70 p-4 bg-color">
+                    <img src="./image/uploadpic.png" alt="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-3 text-nowrap color-gray text-right pr-0">备注</div>
+                <div class="col-sm-9 ml-3 w-70">
+                    <textarea class="form-control" id="archiving-textarea" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="border-top">
+                <button type="button" class="btn btn-success btn-sm btn-size m-3">确定</button>
+                <button type="button" class="btn btn-light btn-sm btn-size m-3">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- 发放 -->
+<div id="grantModal" class="modal fade modal-fixed-right" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: absolute; right: 0; width: 79%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">发放信息录入</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6 mt-3">
+                <div class="col-sm-6 text-nowrap color-gray text-right pr-0">实际放款日期</div>
+                <div class="col-sm-6 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-6 text-nowrap color-gray text-right pr-0">实际放款金额</div>
+                <div class="col-sm-6 ml-3 w-70">
+                    <input type="text" class="form-control" placeholder="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-6 text-nowrap color-gray text-right pr-0">上传保证金收回回单</div>
+                <div class="ml-4 w-70 p-4 bg-color">
+                    <img src="./image/uploadpic.png" alt="">
+                </div>
+            </div>
+            <div class="row align-items-center flex-nowrap mb-3 col-6">
+                <div class="col-sm-6 text-nowrap color-gray text-right pr-0">上传放款回执单</div>
+                <div class="ml-4 w-70 p-4 bg-color">
+                    <img src="./image/uploadpic.png" alt="">
+                </div>
+            </div>
+
+            <div class="border-top">
+                <button type="button" class="btn btn-success btn-sm btn-size m-3">确定</button>
+                <button type="button" class="btn btn-light btn-sm btn-size m-3">取消</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <!-- 审批 -->
 <div id="examineModal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
