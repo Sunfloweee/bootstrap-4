@@ -39,7 +39,8 @@
     </header>
     <main class="container w-100 d-flex justify-content-center mt-3">
         <div class="row justify-content-md-center ml-0 mr-0">
-            <section class="col-sm-12 col-md-7 justify-content-md-between ml-0 mr-0  row mr-md-3 justify-content-sm-center left-main ">
+            <section
+                    class="col-sm-12 col-md-7 justify-content-md-between ml-0 mr-0  row mr-md-3 justify-content-sm-center left-main ">
                 <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
                      id="userManage">
                     <div class="icon-img-item danger-bg-color">
@@ -83,21 +84,21 @@
                     <span>审批</span>
                 </div>
                 <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
-                id="grant">
+                     id="grant">
                     <div class="icon-img-item sky-bg-color">
                         <img src="./image/advance.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>放款</span>
                 </div>
                 <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
-                id="recycle">
+                     id="recycle">
                     <div class="icon-img-item danger-bg-color">
                         <img src="./image/money-back.png" alt="" class="img-fluid icon-img">
                     </div>
                     <span>回款</span>
                 </div>
                 <div class="col-md-2 d-flex flex-column icon-item justify-content-center align-items-center"
-                id="archiving">
+                     id="archiving">
                     <div class="icon-img-item violet-bg-color">
                         <img src="./image/file.png" alt="" class="img-fluid icon-img">
                     </div>
@@ -669,7 +670,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <!--            基本信息-->
+            <!--基本信息-->
             <div class="mb-4 border-bottom mt-4">
                 <span class="modal-base-title ml-3 mt-2">基本信息</span>
                 <div class="modal-body pl-5 pr-5">
@@ -735,7 +736,7 @@
                     </div>
                 </div>
             </div>
-            <!--            配偶信息-->
+            <!--配偶信息-->
             <div>
                 <span class="modal-base-title ml-3 mt-2">配偶信息</span>
                 <div class="modal-body pl-5 pr-5">
@@ -771,7 +772,7 @@
                     </div>
                 </div>
             </div>
-            <!--            家庭成员-->
+            <!--家庭成员-->
             <div>
                 <span class="modal-base-title ml-3 mt-2">家庭成员1</span>
                 <div class="modal-body pl-5 pr-5">
@@ -1098,7 +1099,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <!--            基本信息-->
+            <!--基本信息-->
             <div class="mb-4 border-bottom mt-4">
                 <span class="modal-base-title ml-3 mt-2">基础信息</span>
                 <div class="modal-body pl-5 pr-5 row">
@@ -1324,7 +1325,7 @@
                                 <i class="iconfont icon-guanbi del-user"></i>
                             </div>
                             <i class="iconfont icon-youjiantou"></i>
-                            <i class="iconfont icon-tubiaozhizuomoban add-icon"></i>
+                            <i class="iconfont icon-tubiaozhizuomoban add-icon" id="add-approver"></i>
                         </div>
                     </div>
                 </div>
@@ -1349,7 +1350,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <!--            基本信息-->
+            <!--基本信息-->
             <div class="mb-4 border-bottom mt-4">
                 <span class="modal-base-title ml-3 mt-2">基础信息</span>
                 <div class="modal-body pl-5 pr-5 row">
@@ -1599,6 +1600,112 @@
     </div>
 </div>
 
+<!--添加审核人-->
+<div id="addApproverModal" class="modal fade modal-fixed-right" tabindex="-1" role="dialog"
+     aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="position: absolute; right: 0; width: 79%;">
+        <div class="modal-content">
+            <div class="modal-header border-0 color-bg-gray">
+                <h5 class="modal-title">选人</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="">
+                <div class="pr-5 row">
+                    <div class="p-4 col-sm-12 col-md-6 row ml-0 border-right fs-12 flex-column align-items-center justify-content-between">
+                        <div class="d-flex p-1 flex-wrap">
+                            <div class="d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2">
+                                <span class="text-nowrap">司空律</span>
+                                <i class="iconfont icon-guanbi1"></i>
+                            </div>
+                            <div class="d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2">
+                                <span class="text-nowrap">司空律</span>
+                                <i class="iconfont icon-guanbi1"></i>
+                            </div>
+                            <div class="d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2">
+                                <span class="text-nowrap">司空律</span>
+                                <i class="iconfont icon-guanbi1"></i>
+                            </div>
+                            <div class="d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2">
+                                <span class="text-nowrap">司空律</span>
+                                <i class="iconfont icon-guanbi1"></i>
+                            </div>
+                            <div class="d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2">
+                                <span class="text-nowrap">司空律</span>
+                                <i class="iconfont icon-guanbi1"></i>
+                            </div>
+                            <span class="d-flex align-items-center ">搜索</span>
+                        </div>
+                        <div class="w-100 row">
+                            <button type="button" class="col-4  mr-2 btn w-75 btn-primary w-100">确定(2/48)
+                            </button>
+                            <button type="button" class="col-2 btn w-75 btn-success btn-outline-secondary">返回
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 p-4">
+                        <div class="d-flex align-items-center fs-18">
+                            <i class="iconfont icon-zuojiantou1 color-gray fs-25"></i>
+                            <span>信息部</span>
+                        </div>
+                        <div class="d-flex flex-column p-2 mb-2">
+                            <span>六安市星工合农民互助专业合作社联合</span>
+                            <span class="color-gray">信息部</span>
+                        </div>
+                        <div>
+                            <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-3">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox0" value="check">
+                                <label class="custom-control-label d-flex align-items-center" for="checkbox0">
+                                        <span class="fs-15 mt-2 ml-2">全选</span>
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-2">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox1" value="check">
+                                <label class="custom-control-label" for="checkbox1">
+                                    <div class="d-flex align-items-center fs-12 mr-3 iconfont ml-1">
+                                        <div class="circle-item blue-bg-color color-white mb-1 sm-circle-item mr-2">
+                                            晶青
+                                        </div>
+                                        <span class="fs-14">黄晶青</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-2">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox2" value="check">
+                                <label class="custom-control-label" for="checkbox2">
+                                    <div class="d-flex align-items-center fs-12 mr-3 iconfont ml-1">
+                                        <div class="circle-item blue-bg-color color-white mb-1 sm-circle-item mr-2">
+                                            晶青
+                                        </div>
+                                        <span class="fs-14">黄晶青</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-2">
+                                <input type="checkbox" class="custom-control-input"
+                                       id="checkbox3" value="check">
+                                <label class="custom-control-label" for="checkbox3">
+                                    <div class="d-flex align-items-center fs-12 mr-3 iconfont ml-1">
+                                        <div class="circle-item blue-bg-color color-white mb-1 sm-circle-item mr-2">
+                                            晶青
+                                        </div>
+                                        <span class="fs-14">黄晶青</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--客户信贷-->
 <div id="creditModal" class="modal fade bd-example-modal-lg left-inherit" tabindex="-1" role="dialog"
      aria-labelledby="myLargeModalLabel"
@@ -1611,7 +1718,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <!--            基本信息-->
+            <!--基本信息-->
             <div class="mb-4 border-bottom mt-4">
                 <span class="modal-base-title ml-3 mt-2">基础信息</span>
                 <div class="modal-body pl-5 pr-5 row">
@@ -2630,112 +2737,117 @@
 <script src="./js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
 <script type="text/javascript">
-  $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 
-  // 用户管理
-  $("#userManage").click(function () {
-    $('#userManageModal').modal('show');
-  });
+    // 用户管理
+    $("#userManage").click(function () {
+        $('#userManageModal').modal('show');
+    });
 
-  // 登陆日志
-  $("#login-log").click(function () {
-    $('#loginlogModal').modal('show');
-  });
+    // 登陆日志
+    $("#login-log").click(function () {
+        $('#loginlogModal').modal('show');
+    });
 
-  // 贷款申请
-  $("#loan").click(function () {
-    $('#loanModal').modal('show');
-  });
+    // 贷款申请
+    $("#loan").click(function () {
+        $('#loanModal').modal('show');
+    });
 
-  // 贷款申请 -> 拒绝
-  $('.refuse-loan').click(function () {
-    $('#refuseLoanModal').modal('show');
-  });
+    // 贷款申请 -> 拒绝
+    $('.refuse-loan').click(function () {
+        $('#refuseLoanModal').modal('show');
+    });
 
-  // 修改手机号码
-  $("#modify-phone").click(function () {
-    $('#phoneModal').modal('show');
-  });
+    // 修改手机号码
+    $("#modify-phone").click(function () {
+        $('#phoneModal').modal('show');
+    });
 
-  // 添加用户
-  $("#add-user").click(function () {
-    $('#addUserModal').modal('show');
-  });
+    // 添加用户
+    $("#add-user").click(function () {
+        $('#addUserModal').modal('show');
+    });
 
-  // 添加用户
-  $("#add-info").click(function () {
-    $('#customerModal').modal('show');
-  });
+    // 添加用户
+    $("#add-info").click(function () {
+        $('#customerModal').modal('show');
+    });
 
-  // 添加过桥业务
-  $("#info-add").click(function () {
-    $('#infoAddModal').modal('show');
-  });
+    // 添加过桥业务
+    $("#info-add").click(function () {
+        $('#infoAddModal').modal('show');
+    });
 
-  // 过桥业务录入
-  $("#add-bridge").click(function () {
-    $('#addBridgeModal').modal('show');
-  });
+    // 过桥业务录入
+    $("#add-bridge").click(function () {
+        $('#addBridgeModal').modal('show');
+    });
 
-  // 过桥业务详情
-  $(".bridge-detail").click(function () {
-    $('#bridgeModal').modal('show');
-  });
+    // 过桥业务详情
+    $(".bridge-detail").click(function () {
+        $('#bridgeModal').modal('show');
+    });
 
-  //客户信贷
-  $("#credit").click(function () {
-    $('#creditModal').modal('show');
-  })
+    // 添加过桥客户审批人
+    $("#add-approver").click(function () {
+        $("#addApproverModal").modal("show")
+    });
 
-  // 客户信息 -> 添加客户
-  $("#add-customer").click(function () {
-    $('#addSelectModal').modal('show');
-  });
+    //客户信贷
+    $("#credit").click(function () {
+        $('#creditModal').modal('show');
+    })
 
-  // 客户信息 -> 添加个人
-  $("#addCustomer").click(function () {
-    $('#addCustomerModal').modal('show');
-  });
+    // 客户信息 -> 添加客户
+    $("#add-customer").click(function () {
+        $('#addSelectModal').modal('show');
+    });
 
-  // 客户信息 -> 添加公司
-  $("#addCompany").click(function () {
-    $('#addCompanyModal').modal('show');
-  });
+    // 客户信息 -> 添加个人
+    $("#addCustomer").click(function () {
+        $('#addCustomerModal').modal('show');
+    });
 
-  // 贷款列表 -> 添加贷款
-  $("#add-credit-btn").click(function () {
-    $("#add-credit").modal("show")
-  })
+    // 客户信息 -> 添加公司
+    $("#addCompany").click(function () {
+        $('#addCompanyModal').modal('show');
+    });
 
-  // 贷款列表 -> 贷款详情
-  function creditDetail() {
-    $("#credit-detail").modal("show")
-  }
+    // 贷款列表 -> 添加贷款
+    $("#add-credit-btn").click(function () {
+        $("#add-credit").modal("show")
+    })
 
-  // 贷款列表 -> 贷款追踪
-  function trace() {
-    $("#trace").modal("show")
-  }
+    // 贷款列表 -> 贷款详情
+    function creditDetail() {
+        $("#credit-detail").modal("show")
+    }
 
-  // 审批
-  $("#examine").click(function () {
-    $("#examineModal").modal("show")
-  })
+    // 贷款列表 -> 贷款追踪
+    function trace() {
+        $("#trace").modal("show")
+    }
 
-  // 放款
-  $("#grant").click(function () {
-    $("#grantModal").modal("show")
-  })
+    // 审批
+    $("#examine").click(function () {
+        $("#examineModal").modal("show")
+    })
 
-  // 回款
-  $("#recycle").click(function () {
-    $("#recycleModal").modal("show")
-  })
+    // 放款
+    $("#grant").click(function () {
+        $("#grantModal").modal("show")
+    })
 
-  // 归档
-  $("#archiving").click(function () {
-    $("#archivingModal").modal("show")
-  })
+    // 回款
+    $("#recycle").click(function () {
+        $("#recycleModal").modal("show")
+    })
+
+    // 归档
+    $("#archiving").click(function () {
+        $("#archivingModal").modal("show")
+    })
 
 
 </script>

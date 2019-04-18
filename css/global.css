@@ -48,6 +48,10 @@ body {
     background: #47a8f4;
 }
 
+.blue-bg-color {
+    background: #4d97f5;
+}
+
 /* 紫色 */
 .violet-bg-color {
     background: #736af1;
@@ -56,6 +60,10 @@ body {
 /* 灰色 */
 .color-gray {
     color: #b3b3b3;
+}
+
+.color-bg-gray {
+    background: #f1f3f5;
 }
 
 .w-60 {
@@ -71,6 +79,18 @@ body {
     flex-shrink: 1;
 }
 
+.fs-15 {
+    font-size: 15px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-25 {
+    font-size: 25px;
+}
+
 .fs-50 {
     font-size: 50px;
 }
@@ -81,4 +101,8 @@ body {
 
 .left-inherit {
     left: inherit !important;
+}
+
+.radius-3 {
+    border-radius: 3px;
 }

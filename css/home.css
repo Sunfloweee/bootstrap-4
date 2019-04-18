@@ -141,3 +141,15 @@ header {
     height: 200px;
     width: 150px;
 }
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 50%;
+    top: .6rem;
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.custom-control-label::after {
+    width: 1.4rem;
+    height: 2.2rem;
+}
