@@ -1647,32 +1647,10 @@
             </div>
             <div class="">
                 <div class="pr-5 row">
-                    <div class="p-4 col-sm-12 col-md-6 row ml-0 border-right fs-12 flex-column align-items-center justify-content-between">
-                        <div class="d-flex p-1 flex-wrap">
-                            <div class="d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2">
-                                <span class="text-nowrap">司空律</span>
-                                <i class="iconfont icon-guanbi1"></i>
-                            </div>
-                            <div class="d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2">
-                                <span class="text-nowrap">司空律</span>
-                                <i class="iconfont icon-guanbi1"></i>
-                            </div>
-                            <div class="d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2">
-                                <span class="text-nowrap">司空律</span>
-                                <i class="iconfont icon-guanbi1"></i>
-                            </div>
-                            <div class="d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2">
-                                <span class="text-nowrap">司空律</span>
-                                <i class="iconfont icon-guanbi1"></i>
-                            </div>
-                            <div class="d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2">
-                                <span class="text-nowrap">司空律</span>
-                                <i class="iconfont icon-guanbi1"></i>
-                            </div>
-                            <span class="d-flex align-items-center ">搜索</span>
-                        </div>
-                        <div class="w-100 row">
-                            <button type="button" class="col-4  mr-2 btn w-75 btn-primary w-100">确定(2/48)
+                    <div class="p-4 col-sm-12 col-md-6 row ml-0 border-right fs-12 flex-column justify-content-between">
+                        <div class="d-flex p-1 flex-wrap" id="auditor-list"></div>
+                        <div class="w-100 row ml-2">
+                            <button type="button" class="col-4  mr-2 btn w-75 btn-primary w-100" id="submit-add">确定
                             </button>
                             <button type="button" class="col-2 btn w-75 btn-success btn-outline-secondary">返回
                             </button>
@@ -1690,44 +1668,44 @@
                         <div>
                             <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-3">
                                 <input type="checkbox" class="custom-control-input"
-                                       id="checkbox0" value="check">
-                                <label class="custom-control-label d-flex align-items-center" for="checkbox0">
-                                    <span class="fs-15 mt-2 ml-2">全选</span>
+                                       id="check-all" value="check">
+                                <label class="custom-control-label d-flex align-items-center" for="check-all">
+                                    <span class="fs-15 ml-2">全选</span>
                                 </label>
                             </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-2">
-                                <input type="checkbox" class="custom-control-input"
+                            <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-2 mt-3">
+                                <input type="checkbox" class="custom-control-input auditor"
                                        id="checkbox1" value="check">
                                 <label class="custom-control-label" for="checkbox1">
-                                    <div class="d-flex align-items-center fs-12 mr-3 iconfont ml-1">
+                                    <div class="d-flex align-items-center fs-12 mr-3 iconfont ml-1 mt--6">
                                         <div class="circle-item blue-bg-color color-white mb-1 sm-circle-item mr-2">
-                                            晶青
+                                            刘备
                                         </div>
-                                        <span class="fs-14">黄晶青</span>
+                                        <span class="fs-14 auditor-label">刘备</span>
                                     </div>
                                 </label>
                             </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-2">
-                                <input type="checkbox" class="custom-control-input"
+                            <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-2 mt-3">
+                                <input type="checkbox" class="custom-control-input auditor"
                                        id="checkbox2" value="check">
                                 <label class="custom-control-label" for="checkbox2">
-                                    <div class="d-flex align-items-center fs-12 mr-3 iconfont ml-1">
+                                    <div class="d-flex align-items-center fs-12 mr-3 iconfont ml-1 mt--6">
                                         <div class="circle-item blue-bg-color color-white mb-1 sm-circle-item mr-2">
-                                            晶青
+                                            关羽
                                         </div>
-                                        <span class="fs-14">黄晶青</span>
+                                        <span class="fs-14 auditor-label">关羽</span>
                                     </div>
                                 </label>
                             </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-2">
-                                <input type="checkbox" class="custom-control-input"
+                            <div class="custom-control custom-checkbox d-flex align-items-center ml-1 mb-2 mt-3">
+                                <input type="checkbox" class="custom-control-input auditor"
                                        id="checkbox3" value="check">
                                 <label class="custom-control-label" for="checkbox3">
-                                    <div class="d-flex align-items-center fs-12 mr-3 iconfont ml-1">
+                                    <div class="d-flex align-items-center fs-12 mr-3 iconfont ml-1 mt--6">
                                         <div class="circle-item blue-bg-color color-white mb-1 sm-circle-item mr-2">
-                                            晶青
+                                            张飞
                                         </div>
-                                        <span class="fs-14">黄晶青</span>
+                                        <span class="fs-14 auditor-label">张飞</span>
                                     </div>
                                 </label>
                             </div>
@@ -2759,8 +2737,8 @@
             <textarea class="form-control w-75 ml-4 mt-3 bg-color" id="trace_textarea" rows="4"
                       placeholder="输入追踪信息"></textarea>
             <div>
-                <button type="button" class="btn btn-success btn-sm btn-size m-3">确定</button>
-                <button type="button" class="btn btn-light btn-sm btn-size m-3">取消</button>
+                <button type="button" class="btn btn-success  btn-size m-3">确定</button>
+                <button type="button" class="btn btn-light  btn-size m-3">取消</button>
             </div>
 
         </div>
@@ -2890,19 +2868,19 @@
     function grantUpload(num) {
         console.log(num)
         let reader = new FileReader()
-        let ele = $("#grant_upload"+num)[0]
+        let ele = $("#grant_upload" + num)[0]
         let file = ele.files[0]
 
-        console.log($("#grant_upload"+num))
+        console.log($("#grant_upload" + num))
         console.log(file)
-        if (file){
+        if (file) {
             reader.readAsDataURL(file)
             reader.onload = function () {
                 if (reader.result) {
                     if (reader.result.indexOf("image/") == -1) {
-                        $("#grant_img"+num)[0].src = "./image/uploadpic.png"
-                        $("#grant_img"+num)[0].width = 64
-                        $("#grant_img"+num)[0].height = 93
+                        $("#grant_img" + num)[0].src = "./image/uploadpic.png"
+                        $("#grant_img" + num)[0].width = 64
+                        $("#grant_img" + num)[0].height = 93
 
                         alert("请上传图片类型文件")
                         return
@@ -2932,7 +2910,7 @@
                 image.width *= MAX_SIZE / image.height
                 image.height = MAX_SIZE
             }
-            var canvas = document.      //生成base64码
+            var canvas = document.//生成base64码
             createElement("canvas")
             //获取2d画布
             var ctx = canvas.getContext("2d")
@@ -2945,13 +2923,120 @@
             ctx.drawImage(image, 0, 0, image.width, image.height)
             var blob = canvas.toDataURL("image/png")
 
-            $("#grant_img"+num)[0].width = image.width
-            $("#grant_img"+num)[0].height = image.height
-            $("#grant_img"+num)[0].src = blob
+            $("#grant_img" + num)[0].width = image.width
+            $("#grant_img" + num)[0].height = image.height
+            $("#grant_img" + num)[0].src = blob
         };
 
         image.src = src;
     }
 
+    // 全选操作
+    var auditor = $('.auditor') // 右侧所有checkbox
+    var checkAll = $('#check-all') // 全选按钮
+    var auditorList = $('#auditor-list') // 左侧添加区域
+    var submitAdd = $('#submit-add') // 按钮
+    checkAll.click(function () {
+
+        // 所有可选checkbox
+        var auditorLength = auditor.length
+        var checkStatus = checkAll[0].checked
+
+        // 控制按钮显示
+        if (checkStatus) {
+            submitAdd[0].innerHTML = '确定(' + auditorLength + '/' + auditorLength + ')'
+        } else {
+            submitAdd[0].innerHTML = '确定(0' + '/' + auditorLength + ')'
+        }
+
+        // 控制所有子checkbox 状态
+        for (var i = 0; i < auditorLength; i++) {
+            if (checkStatus) {
+                auditor[i].checked = true
+            } else {
+                auditor[i].checked = false
+            }
+        }
+
+        // 将所有选中的checkbox 添加到左侧
+        if (checkStatus) {
+            var arr = $('.auditor-label')
+            auditorList.html('')
+            for (var auditorDom of arr) {
+                var name = auditorDom.innerHTML
+                var addhtml = "<div class='d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2 left-auditor'><span class='text-nowrap'>" + name + "</span><i class='iconfont icon-guanbi1'></i></div>"
+                auditorList.append(addhtml)
+            }
+        } else {
+            auditorList.html('')
+        }
+    })
+
+    // 点击单个图标 添加到左侧
+    $('.auditor').click(function () {
+        var arr = $('.auditor')
+        var arrTemp = []
+        auditorList.html('')
+
+
+        // 重新获取 子checkbox 渲染到左边
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i].checked) {
+                arrTemp.push(i)
+                var temp = $('.auditor-label')[i]
+                var name = temp.innerText
+                var addhtml = "<div class='d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2 left-auditor'><span class='text-nowrap'>" + name + "</span><i class='iconfont icon-guanbi1'></i></div>"
+                auditorList.append(addhtml)
+            }
+        }
+
+        // 全选按钮控制
+        if (!$(this)[0].checked) {
+            checkAll[0].checked = false
+        }
+
+        // 控制全选按钮状态 控制按钮数字的显示
+        var auditorLength = auditor.length
+        if (arrTemp.length ===  auditorLength) {
+            checkAll[0].checked = true
+            submitAdd[0].innerHTML = '确定(' + auditorLength + '/' + auditorLength + ')'
+        } else {
+            submitAdd[0].innerHTML = '确定(' + arrTemp.length + '/' + auditorLength + ')'
+        }
+    })
+
+    // 点击左侧区域
+    $("body").on("click",".left-auditor",function(){
+        // 初始化右侧选中元素列表
+        var selectArr = []
+        for (var item = 0; item < auditor.length; item ++) {
+            if (auditor[item].checked) {
+                sum++
+                selectArr.push(item)
+            }
+        }
+
+        var nowDom = $(this)[0]
+        var childAuditorArr = auditorList[0].children
+
+        // 匹配删除的元素 从右侧选中列表移除
+        for (var i = 0; i < childAuditorArr.length; i++) {
+            if (childAuditorArr[i] === nowDom) {
+                auditor[selectArr[i]].checked = false
+            }
+        }
+
+        // 统计删除之后的按钮选中个数
+        var sum = 0
+        for (var item of auditor) {
+            if (item.checked) {
+                sum++
+            }
+        }
+
+        $(this).remove()
+        checkAll[0].checked = false
+        submitAdd[0].innerHTML = '确定(' + sum  + '/' + auditor.length + ')'
+    })
 </script>
 </html>

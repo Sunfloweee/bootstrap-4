@@ -99,6 +99,10 @@ body {
     cursor: pointer;
 }
 
+.mt--6 {
+    margin-top: -0.6rem;
+}
+
 .left-inherit {
     left: inherit !important;
 }
