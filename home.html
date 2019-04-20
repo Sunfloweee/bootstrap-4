@@ -1349,15 +1349,17 @@
                 <div class="modal-body pl-5 pr-5 row">
                     <div class="col-12 row align-items-center flex-nowrap mb-3">
                         <div class="col-sm-2 text-nowrap color-gray text-right pr-0">审批人</div>
-                        <div class="col-sm-9 ml-3 w-100 d-flex justify-content-end align-items-center">
-                            <div class="d-flex align-items-center mr-2 position-relative">
-                                <div class="d-flex flex-column align-items-center fs-12">
-                                    <div class="circle-item primary-bg-color color-white mb-1 sm-circle-item">晶青</div>
-                                    <span class="fs-12 color-gray">黄晶青</span>
-                                </div>
-                                <i class="iconfont icon-guanbi del-user"></i>
-                            </div>
-                            <i class="iconfont icon-youjiantou"></i>
+                        <div class="col-sm-9 ml-3 w-100 d-flex justify-content-end align-items-center" id="approver-list">
+
+                            <!--<div class="d-flex align-items-center mr-2 position-relative">-->
+                                <!--<div class="d-flex flex-column align-items-center fs-12 position-relative">-->
+                                    <!--<div class="circle-item primary-bg-color color-white mb-1 sm-circle-item">晶青</div>-->
+                                    <!--<span class="fs-12 color-gray">黄晶青</span>-->
+                                    <!--<i class="iconfont icon-guanbi del-user"></i>-->
+                                <!--</div>-->
+                                <!--<i class="iconfont icon-youjiantou ml-2 mr-2"></i>-->
+                            <!--</div>-->
+
                             <i class="iconfont icon-tubiaozhizuomoban add-icon" id="add-approver"></i>
                         </div>
                     </div>
@@ -2804,10 +2806,11 @@
         $('#bridgeModal').modal('show');
     });
 
+
     // 添加过桥客户审批人
-    $("#add-approver").click(function () {
+    $("body").on("click","#add-approver",function(){
         $("#addApproverModal").modal("show")
-    });
+    })
 
     //客户信贷
     $("#credit").click(function () {
@@ -2964,7 +2967,7 @@
             auditorList.html('')
             for (var auditorDom of arr) {
                 var name = auditorDom.innerHTML
-                var addhtml = "<div class='d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2 left-auditor'><span class='text-nowrap'>" + name + "</span><i class='iconfont icon-guanbi1'></i></div>"
+                var addhtml = "<div class='d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2 left-auditor'><span class='text-nowrap left-name'>" + name + "</span><i class='iconfont icon-guanbi1'></i></div>"
                 auditorList.append(addhtml)
             }
         } else {
@@ -2985,7 +2988,7 @@
                 arrTemp.push(i)
                 var temp = $('.auditor-label')[i]
                 var name = temp.innerText
-                var addhtml = "<div class='d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2 left-auditor'><span class='text-nowrap'>" + name + "</span><i class='iconfont icon-guanbi1'></i></div>"
+                var addhtml = "<div class='d-flex align-items-center mr-3 color-bg-gray p-1 radius-3 mb-2 left-auditor'><span class='text-nowrap left-name'>" + name + "</span><i class='iconfont icon-guanbi1'></i></div>"
                 auditorList.append(addhtml)
             }
         }
@@ -3037,6 +3040,72 @@
         $(this).remove()
         checkAll[0].checked = false
         submitAdd[0].innerHTML = '确定(' + sum  + '/' + auditor.length + ')'
+    })
+
+    // 确定添加审核人
+    $('#submit-add').click(function () {
+        var leftAuditor = $('.left-auditor')
+        var approver = $("#approver-list")
+        if (leftAuditor.length > 0) {
+            approver.html('')
+            for (var i = leftAuditor.length - 1; i >= 0; i--) {
+                var leftName = leftAuditor.children('.left-name')[i].innerText
+                var addhtml = "<div class='d-flex align-items-center mr-2 position-relative'><div class='d-flex flex-column align-items-center fs-12 position-relative'><div class='circle-item primary-bg-color color-white mb-1 sm-circle-item'>" + leftName + "</div><span class='fs-12 color-gray'>" + leftName + "</span><i class='iconfont icon-guanbi del-user'></i></div><i class='iconfont icon-youjiantou ml-2 mr-2'></i></div>"
+                approver.prepend(addhtml)
+
+                if (i === 0) {
+                    var addEnd = "<i class='iconfont icon-tubiaozhizuomoban add-icon' id='add-approver'></i>"
+                    approver.append(addEnd)
+                }
+            }
+        } else {
+            approver.html('')
+            var addEnd = "<i class='iconfont icon-tubiaozhizuomoban add-icon' id='add-approver'></i>"
+            approver.append(addEnd)
+        }
+
+        $("#addApproverModal").modal('hide')
+    })
+
+    $("body").on('click', ".del-user", function () {
+        // 全选按钮取消
+        checkAll[0].checked = false
+
+        // 左侧删除
+        let nodeParent = $(this).parent()
+        let nowNodeName = $(this).parent().children('.circle-item')[0].innerText
+        var leftAuditor = $('.left-auditor')
+
+        // 匹配当前点击与弹出框左侧相同 -> 删除
+        for (var i = leftAuditor.length - 1; i >= 0; i--) {
+            var leftName = leftAuditor.children('.left-name')[i].innerText
+            if (nowNodeName === leftName) {
+                leftAuditor[i].remove()
+            }
+        }
+
+        // 右侧取消选中
+        var auditorParent = auditor.parent()
+        var afterCheckNum = 0
+        for (var k = 0; k < auditorParent.length; k++) {
+            var auditorText = auditorParent.children('label').children().children('span')[k].innerText
+
+            if (auditorParent.children('input')[k].checked) {
+                afterCheckNum++
+            }
+
+            if (auditorText === nowNodeName) {
+                // console.log(k, auditorText)
+                console.log(auditorParent.children('input')[k].checked = false)
+            }
+        }
+
+        // 修改按钮
+        var endCheckNum = afterCheckNum -1
+        submitAdd[0].innerHTML = '确定(' + endCheckNum  + '/' + auditor.length + ')'
+
+        // 点击标签删除
+        nodeParent.parent().remove()
     })
 </script>
 </html>
